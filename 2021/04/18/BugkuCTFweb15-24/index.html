@@ -4,15 +4,25 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>BugkuCTF web15-24 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="web15题目说“输入5位密码查看”，直接bp爆破或python多线程脚本爆破(可惜不会，借用了别人的脚本，python是该好好学学了) web16题目提示“备份”，毫不犹豫直接拿dirsearch扫目录，果不其然，扫出来&#x2F;index.php.bak，随后拿到备份文件，源码如下， 1234567891011121314&lt;?phpinclude_once &quot;flag.php&amp;quot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BugkuCTF web15-24">
+<meta property="og:url" content="http://example.com/2021/04/18/BugkuCTFweb15-24/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="web15题目说“输入5位密码查看”，直接bp爆破或python多线程脚本爆破(可惜不会，借用了别人的脚本，python是该好好学学了) web16题目提示“备份”，毫不犹豫直接拿dirsearch扫目录，果不其然，扫出来&#x2F;index.php.bak，随后拿到备份文件，源码如下， 1234567891011121314&lt;?phpinclude_once &quot;flag.php&amp;quot">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/shuoke/AppData/Roaming/Typora/typora-user-images/image-20210413202811990.png">
+<meta property="og:image" content="c:/Users/shuoke/AppData/Roaming/Typora/typora-user-images/image-20210413203752124.png">
+<meta property="og:image" content="c:/Users/shuoke/AppData/Roaming/Typora/typora-user-images/image-20210413204149361.png">
+<meta property="og:image" content="c:/Users/shuoke/AppData/Roaming/Typora/typora-user-images/image-20210413210441344.png">
+<meta property="article:published_time" content="2021-04-18T10:34:13.000Z">
+<meta property="article:modified_time" content="2021-04-18T10:35:58.334Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="CTF-web">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/shuoke/AppData/Roaming/Typora/typora-user-images/image-20210413202811990.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,9 +79,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-BugkuCTFweb15-24" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-BugkuCTFweb15-24" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/04/18/BugkuCTFweb15-24/" class="article-date">
   <time class="dt-published" datetime="2021-04-18T10:34:13.000Z" itemprop="datePublished">2021-04-18</time>
@@ -84,8 +92,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/18/BugkuCTFweb15-24/">BugkuCTF web15-24</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      BugkuCTF web15-24
     </h1>
   
 
@@ -157,130 +165,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-BugkuCTFweb1-14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/12/BugkuCTFweb1-14/" class="article-date">
-  <time class="dt-published" datetime="2021-04-12T12:29:55.000Z" itemprop="datePublished">2021-04-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/12/BugkuCTFweb1-14/">BugkuCTF web1-14</a>
-    </h1>
+    <a href="/2021/04/12/BugkuCTFweb1-14/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">BugkuCTF web1-14</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="web1"><a href="#web1" class="headerlink" title="web1"></a>web1</h1><p>F12查看源码，flag就在html源码中</p>
-<h1 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h1><p>题目叫我们输入验证，输入发现只能输入一个数字，F12查看源码，发现input处有长度限制，直接改html源码处的长度</p>
-<h1 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$what&#x3D;$_GET[&#39;what&#39;];</span><br><span class="line">echo $what;</span><br><span class="line">if($what&#x3D;&#x3D;&#39;flag&#39;)</span><br><span class="line">echo &#39;flag&#123;****&#125;&#39;;</span><br></pre></td></tr></table></figure>
-
-<p>简单的代码审计，易得<code>payload：?what=flag</code></p>
-<h1 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h1><p>与上一题区别在于POST传递数据</p>
-<h1 id="web5"><a href="#web5" class="headerlink" title="web5"></a>web5</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$num&#x3D;$_GET[&#39;num&#39;];</span><br><span class="line">if(!is_numeric($num))</span><br><span class="line">&#123;</span><br><span class="line">echo $num;</span><br><span class="line">if($num&#x3D;&#x3D;1)</span><br><span class="line">echo &#39;flag&#123;**********&#125;&#39;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>考察php语言特性，弱类型，易得<code>payload：?num=1a</code></p>
-<h1 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h1><p>查看题目，不断弹窗，禁用Javascript，F12查看html源码，发现一串以<code>&amp;#</code>开头的是HTML实体，<code>$#+ASCII+;</code>，Unicode解码</p>
-<h1 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h1><p>打卡发现页面不断刷新，用BP抓包，不断forward，直到刷新出源码有flag的页面(包的长度不同)。或者禁用js，手动刷新，直到出现flag页面</p>
-<h1 id="web8"><a href="#web8" class="headerlink" title="web8"></a>web8</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">include</span> <span class="string">&quot;flag.php&quot;</span>;</span><br><span class="line">    <span class="variable">$a</span> = @<span class="variable">$_REQUEST</span>[<span class="string">&#x27;hello&#x27;</span>];</span><br><span class="line">    <span class="keyword">eval</span>( <span class="string">&quot;var_dump(<span class="subst">$a</span>);&quot;</span>);</span><br><span class="line">    show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>代码审计，显然flag在flag.php中，所以很容易构造<code>payload：?hello=system(&#39;cat flag.php&#39;)</code></p>
-<h1 id="web9"><a href="#web9" class="headerlink" title="web9"></a>web9</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">flag In the variable ! </span><br><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">include</span> <span class="string">&quot;flag1.php&quot;</span>;</span><br><span class="line">highlight_file(<span class="keyword">__file__</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;args&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$args</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;args&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(!preg_match(<span class="string">&quot;/^\w+$/&quot;</span>,<span class="variable">$args</span>))&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;args error!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">eval</span>(<span class="string">&quot;var_dump($<span class="subst">$args</span>);&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>代码审计，它提示了flag在变量中，过滤了除<code>\w</code>以外的东西，又看到$$args，想到$GLOBALS，所以构造<code>payload：?args=GLOBALS</code></p>
-<h1 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h1><p>打开题目，发现显示“什么都没有”，提示“头等舱”，不明所以，用BP抓包发送，发现响应(Response)头中有flag</p>
-<h1 id="web11"><a href="#web11" class="headerlink" title="web11"></a>web11</h1><p>题目提示有后门，用dirsearch工具爆破目录，发现有<code>shell.php</code>，进入发现要密码，BP抓包，用字典爆破密码，最后爆破出密码是<code>hack</code></p>
-<h1 id="web12"><a href="#web12" class="headerlink" title="web12"></a>web12</h1><p>题目提示“本地管理员”，输入<code>username</code>和<code>password</code>，显示IP禁止访问，联想“本地”，BP抓包，请求头中添加<code>X-Forwarded-For:127.0.0.1</code>，F12查看网页源码，发现<!-- dGVzdDEyMw== -->，base64解码得<code>test123</code>，“管理员”联想<code>username=admin</code>，<code>password=test123</code>，成功拿到flag</p>
-<h1 id="web13"><a href="#web13" class="headerlink" title="web13"></a>web13</h1><p>题目提示看源代码，F12查看，看到一段JS代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="string">&#x27;%66%75%6e%63%74%69%6f%6e%20%63%68%65%63%6b%53%75%62%6d%69%74%28%29%7b%76%61%72%20%61%3d%64%6f%63%75%6d%65%6e%74%2e%67%65%74%45%6c%65%6d%65%6e%74%42%79%49%64%28%22%70%61%73%73%77%6f%72%64%22%29%3b%69%66%28%22%75%6e%64%65%66%69%6e%65%64%22%21%3d%74%79%70%65%6f%66%20%61%29%7b%69%66%28%22%36%37%64%37%30%39%62%32%62&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="string">&#x27;%61%61%36%34%38%63%66%36%65%38%37%61%37%31%31%34%66%31%22%3d%3d%61%2e%76%61%6c%75%65%29%72%65%74%75%72%6e%21%30%3b%61%6c%65%72%74%28%22%45%72%72%6f%72%22%29%3b%61%2e%66%6f%63%75%73%28%29%3b%72%65%74%75%72%6e%21%31%7d%7d%64%6f%63%75%6d%65%6e%74%2e%67%65%74%45%6c%65%6d%65%6e%74%42%79%49%64%28%22%6c%65%76%65%6c%51%75%65%73%74%22%29%2e%6f%6e%73%75%62%6d%69%74%3d%63%68%65%63%6b%53%75%62%6d%69%74%3b&#x27;</span>;</span><br><span class="line"><span class="built_in">eval</span>(<span class="built_in">unescape</span>(p1) + <span class="built_in">unescape</span>(<span class="string">&#x27;%35%34%61%61%32&#x27;</span> + p2));</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>url解码得eval里的内容</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkSubmit</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a=<span class="built_in">document</span>.getElementById(<span class="string">&quot;password&quot;</span>);</span><br><span class="line">	<span class="keyword">if</span>(<span class="string">&quot;undefined&quot;</span>!=<span class="keyword">typeof</span> a)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;67d709b2b54aa2aa648cf6e87a7114f1&quot;</span>==a.value)</span><br><span class="line">    		<span class="keyword">return</span>!<span class="number">0</span>;alert(<span class="string">&quot;Error&quot;</span>);a.focus();<span class="keyword">return</span>!<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;		</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;levelQuest&quot;</span>).onsubmit=checkSubmit;</span><br></pre></td></tr></table></figure>
-
-<p>JS代码审计，输入<code>67d709b2b54aa2aa648cf6e87a7114f1</code>，拿到flag</p>
-<h1 id="web14"><a href="#web14" class="headerlink" title="web14"></a>web14</h1><p>打卡题目，有一个点击事件，点击跳转，回显<code>index.php</code>，且<code>http://114.67.246.176:10703/index.php?file=show.php</code>，想到用PHP封装协议读取源码，<code>payload：?file=php://filter/read=convert.base64-encode/resource=index.php</code>，然后base64解码，源码注释中得到flag</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/12/BugkuCTFweb1-14/" data-id="cknn1c3u70000g8waaluk8yqm" data-title="BugkuCTF web1-14" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF-web/" rel="tag">CTF-web</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/03/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-04-03T07:12:18.102Z" itemprop="datePublished">2021-04-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/03/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/03/hello-world/" data-id="cknn1c3uf0003g8waall6ei96" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
