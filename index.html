@@ -21,9 +21,9 @@
   </script>
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="BkingXD">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="BkingXD">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="BkingXD">
 <meta name="twitter:card" content="summary">
@@ -41,7 +41,7 @@
   };
 </script>
 
-  <title>Hexo</title>
+  <title>BkingXD</title>
   
 
 
@@ -92,7 +92,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">BkingXD</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -150,6 +150,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/24/BugkuCTFweb25-33/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BkingXD">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BkingXD">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/24/BugkuCTFweb25-33/" class="post-title-link" itemprop="url">BugkuCTF web25-33</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-24 21:54:51 / 修改时间：21:56:24" itemprop="dateCreated datePublished" datetime="2021-04-24T21:54:51+08:00">2021-04-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="web25"><a href="#web25" class="headerlink" title="web25"></a>web25</h1><p>hint：<a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/85230">SQL约束攻击</a>（先去学习一下）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、不管sql查询还是插入，都会略去空格（前提：空格后面没有字符）</span><br><span class="line">2、插入数据时，先查询该username在数据库中是否存在，不存在，则插入</span><br><span class="line">3、插入数据时，会删去高出限制的字符</span><br></pre></td></tr></table></figure>
+
+<p>先随便注册一个账号，然后登陆试试，回显“不是管理员还想看flag？！”，去注册一个用户名为<code>admin</code>的账号，发现已存在，于是根据SQL约束攻击的原理，注册一个用户为<code>admin(空格*n)1</code>的账号，输入<code>admin</code>和自己注册的密码，拿到flag。</p>
+<p>原理：此处注册账号相当于往数据库插入一条数据，所以<code>admin(空格*n)1</code>会被查询数据库中是否存在，如果不存在，则插入数据，但是因为每条数据的长度有限，它会自动删去超出长度的字符，于是就会存在两条<code>admin</code>数据，输入<code>admin</code>和自己注册的密码，就会返回第一个数据记录，也就是原始的数据记录。这样就成功做到了以原始用户身份登录</p>
+<h1 id="web26"><a href="#web26" class="headerlink" title="web26"></a>web26</h1><p>”are you from google?“，显然这是要改referer，BP抓包，请求头里改<code>Referer:http://www.google.com</code>，或者用hackbar这个插件，flag就直接出来了</p>
+<h1 id="web27"><a href="#web27" class="headerlink" title="web27"></a>web27</h1><p>提示md5 collision，打开页面，显示”please input a“，随便尝试一下GET传入<code>a</code>的值，回显为”false!!!“，根据提示，试了一下<code>?a=QNKCDZO</code>，显示为”false!!!“，在再试了一下<code>?a=240610708</code>，就拿到了flag（很是迷惑）。</p>
+<p>于是上网搜了一下，发现好像缺失了源码，那就分析以下源码吧</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$md51</span> = md5(<span class="string">&#x27;QNKCDZO&#x27;</span>);</span><br><span class="line"><span class="variable">$a</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>];</span><br><span class="line"><span class="variable">$md52</span> = @md5(<span class="variable">$a</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$a</span>))&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$a</span> != <span class="string">&#x27;QNKCDZO&#x27;</span> &amp;&amp; <span class="variable">$md51</span> == <span class="variable">$md52</span>) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;nctf&#123;*****************&#125;&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;false!!!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="comment">//显然，用了&quot;==&quot;，md5函数漏洞，只要a的md5加密后的值为0E开头就行</span></span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;please input a&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="web28"><a href="#web28" class="headerlink" title="web28"></a>web28</h1><p>提示为“请从本地访问”，这太简单了，就是伪造IP嘛，直接用hackbar插件添加<code>X-Forwarded-For:127.0.0.1</code>，轻松拿到flag</p>
+<h1 id="web29"><a href="#web29" class="headerlink" title="web29"></a>web29</h1><p>简简单单代码审计，</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">highlight_file(<span class="string">&#x27;flag.php&#x27;</span>);</span><br><span class="line"><span class="variable">$_GET</span>[<span class="string">&#x27;id&#x27;</span>] = urldecode(<span class="variable">$_GET</span>[<span class="string">&#x27;id&#x27;</span>]);<span class="comment">//得到的数据进行url解码</span></span><br><span class="line"><span class="variable">$flag</span> = <span class="string">&#x27;flag&#123;xxxxxxxxxxxxxxxxxx&#125;&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;uname&#x27;</span>]) <span class="keyword">and</span> <span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;passwd&#x27;</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$_GET</span>[<span class="string">&#x27;uname&#x27;</span>] == <span class="variable">$_POST</span>[<span class="string">&#x27;passwd&#x27;</span>])</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;passwd can not be uname.&#x27;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (sha1(<span class="variable">$_GET</span>[<span class="string">&#x27;uname&#x27;</span>]) === sha1(<span class="variable">$_POST</span>[<span class="string">&#x27;passwd&#x27;</span>])&amp;(<span class="variable">$_GET</span>[<span class="string">&#x27;id&#x27;</span>]==<span class="string">&#x27;margin&#x27;</span>))</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&#x27;Flag: &#x27;</span>.<span class="variable">$flag</span>);</span><br><span class="line"><span class="comment">//回显flag的条件，uname和passwd不能相等，但它们的sha1值要相等，因为用了&quot;===&quot;，不能用0E绕过，用数组</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;sorry!&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>构造<code>payload：GET:?id=margin&amp;uname[]=1 POST:passwd[]=2</code></p>
+<h1 id="web30"><a href="#web30" class="headerlink" title="web30"></a>web30</h1><p>题目描述：“txt？？？？”，打开又是代码审计，</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">extract(<span class="variable">$_GET</span>);</span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>(<span class="variable">$ac</span>))<span class="comment">//如果$ac存在且非空非零，empty()返回false</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$f</span> = trim(file_get_contents(<span class="variable">$fn</span>));<span class="comment">//$fn为一个文件名，$f为将这个文件读入一个字符串并去除首尾空白字符</span></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$ac</span> === <span class="variable">$f</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;This is flag:&quot;</span> .<span class="string">&quot; <span class="subst">$flag</span>&lt;/p&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;sorry!&lt;/p&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>通过分析代码，可以得出，应该需要寻找<code>$fn</code>的值，题目又提示了txt，用dirsearch扫一下目录，发现没有想要的txt文件，后来想到<code>file_get_contents()</code>这个函数，可将参数设为<code>php://input</code>，同时用POST传数据，此时POST的数据可被视为文件内容，于是BP抓包，构造<code>payload：GET:?ac=123&amp;fn=php://input POST:123</code>。</p>
+<p>但我感觉这个提示应该是有用的，我一开始的想法是没错的，后来看到了别的师傅的另一种解，目录下应该是有个<code>flag.txt</code>，直接访问可得里面内容为<code>bugku</code>，于是可以构造<code>payload：?ac=bugku&amp;fn=flag.txt</code>，但是我迷惑这个文件名的由来，难道真的只有大胆猜测得出？</p>
+<h1 id="web31"><a href="#web31" class="headerlink" title="web31"></a>web31</h1><p>打开网页，显示如下<img src="C:\Users\shuoke\AppData\Roaming\Typora\typora-user-images\image-20210420215147492.png" alt="image-20210420215147492"></p>
+<p>“No such file or directory”，说明文件或路径不对，暗示需要寻找到其它文件和路径，于是拿dirsearch扫描，发现存在<code>/robots.txt</code>，访问该文件，回显为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow: &#x2F;resusl.php</span><br></pre></td></tr></table></figure>
+
+<p>发现它不允许访问<code>/resusl.php</code>，访问一下，出现<code>Warning:你不是管理员你的IP已经被记录到日志了</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">By bugkuctf.</span><br><span class="line">if ($_GET[x]&#x3D;&#x3D;$password) 此处省略1w字</span><br></pre></td></tr></table></figure>
+
+<p>IP被ban，以为要改XFF头伪造IP(但是后来发现这里不用改)，而这里的password可以爆破得到，但其实题目的描述“好像需要管理员”，还有“Warning:你不是管理员”，已经提示你<code>x=admin</code>，用hackbar传参，就能拿到flag</p>
+<h1 id="web32"><a href="#web32" class="headerlink" title="web32"></a>web32</h1><p>一道普通的文件上传，“My name is margin,give me a image file not a php”，不能上传php文件，写一句话木马的文件，将后缀改为<code>.jpg</code>，发现上传成功，并且给了路径，但此时并不能蚁剑直连。</p>
+<p>BP抓包，尝试将后缀改回<code>.php</code>，发现不行，并不是客户端验证。</p>
+<p>直接上传php文件抓包，改后缀不能上传成功，回显为“You was catched! :)”，对比之下，发现请求数据的<code>Content-Type</code>有区别，这个参数应该改为<code>image/jpeg</code>，再尝试一些后缀名的绕过，例如<code>.php1</code>，<code>.php2</code>等，但发现还是不行，实在没什么思路，去看了WP，请求头部中的<code>Content-Type</code>竟然也要改，大小写绕过<code>muLTIpart/form-data</code>，然后后缀改为<code>.php4</code>，成功上传，蚁剑直连，在根目录下找到flag，拿到源码分析一下刚才操作的原理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function global_filter()&#123;</span><br><span class="line">	$type &#x3D;  $_SERVER[&quot;CONTENT_TYPE&quot;];</span><br><span class="line">	if (strpos($type,&quot;multipart&#x2F;form-data&quot;) !&#x3D;&#x3D; False)&#123;</span><br><span class="line">	&#x2F;&#x2F;这是为什么请求头中的Content-Type需要大小写绕过</span><br><span class="line">		$file_ext &#x3D;  substr($_FILES[&quot;file&quot;][&quot;name&quot;], strrpos($_FILES[&quot;file&quot;][&quot;name&quot;], &#39;.&#39;)+1);</span><br><span class="line">        $file_ext &#x3D; strtolower($file_ext);&#x2F;&#x2F;截取后缀名并小写</span><br><span class="line">		if (stripos($file_ext,&quot;php&quot;) !&#x3D;&#x3D; False)&#123;&#x2F;&#x2F;过滤php后缀名</span><br><span class="line">			die(&quot;Invalid File&lt;br &#x2F;&gt;&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">global_filter();</span><br><span class="line">if ((stripos($_FILES[&quot;file&quot;][&quot;type&quot;],&#39;image&#39;)!&#x3D;&#x3D; False) &amp;&amp; ($_FILES[&quot;file&quot;][&quot;size&quot;] &lt; 10*1024*1024))&#123;&#x2F;&#x2F;判断Content-Type中是否有image和文件大小</span><br><span class="line">	if ($_FILES[&quot;file&quot;][&quot;error&quot;] &#x3D;&#x3D; 0)&#123;</span><br><span class="line">		$file_ext &#x3D;  substr($_FILES[&quot;file&quot;][&quot;name&quot;], strrpos($_FILES[&quot;file&quot;][&quot;name&quot;], &#39;.&#39;)+1);</span><br><span class="line">        $file_ext &#x3D; strtolower($file_ext);&#x2F;&#x2F;截取后缀名并小写</span><br><span class="line">        $allowexts &#x3D; array(&#39;jpg&#39;,&#39;gif&#39;,&#39;jpeg&#39;,&#39;bmp&#39;,&#39;php4&#39;);&#x2F;&#x2F;php4在白名单中，这是为什么能用php4作为后缀</span><br><span class="line">        if(!in_array($file_ext,$allowexts))&#123;&#x2F;&#x2F;判断在不在白名单</span><br><span class="line">            die(&quot;give me a image file not a php&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">		$_FILES[&quot;file&quot;][&quot;name&quot;]&#x3D;&quot;bugku&quot;.date(&#39;dHis&#39;).&quot;_&quot;.rand(1000,9999).&quot;.&quot;.$file_ext;</span><br><span class="line">	    if (file_exists(&quot;upload&#x2F;&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;]))&#123;</span><br><span class="line">	    	echo $_FILES[&quot;file&quot;][&quot;name&quot;] . &quot; already exists. &lt;br &#x2F;&gt;&quot;;</span><br><span class="line">	    &#125;</span><br><span class="line">	    else&#123;</span><br><span class="line">	    	if (!file_exists(&#39;.&#x2F;upload&#x2F;&#39;))&#123;</span><br><span class="line">	    		mkdir (&quot;.&#x2F;upload&#x2F;&quot;);</span><br><span class="line">                system(&quot;chmod 777 &#x2F;var&#x2F;www&#x2F;html&#x2F;upload&quot;);</span><br><span class="line">	    	&#125;</span><br><span class="line">	    	move_uploaded_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;],&quot;upload&#x2F;&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;]);</span><br><span class="line">                echo &quot;Upload Success&lt;br&gt;&quot;;</span><br><span class="line">                $filepath &#x3D; &quot;upload&#x2F;&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;];</span><br><span class="line">	      	echo &quot;Stored in: &quot; .&quot;&lt;a href&#x3D;&#39;&quot; . $filepath . &quot;&#39; target&#x3D;&#39;_blank&#39;&gt;&quot; . $filepath . &quot;&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">	if($_FILES[&quot;file&quot;][&quot;size&quot;] &gt; 0)&#123;</span><br><span class="line">		echo &quot;You was catched! :) &lt;br &#x2F;&gt;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="web33"><a href="#web33" class="headerlink" title="web33"></a>web33</h1><p>描述为“fR4aHWwuFCYYVydFRxMqHhhCKBseH1dbFygrRxIWJ1UYFhotFjA=”，下载附件，是一段php源码，如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">encrypt</span>(<span class="params"><span class="variable">$data</span>,<span class="variable">$key</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$key</span> = md5(<span class="string">&#x27;ISCC&#x27;</span>);<span class="comment">//密钥</span></span><br><span class="line">    <span class="variable">$x</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="variable">$len</span> = strlen(<span class="variable">$data</span>);<span class="comment">//明文长度</span></span><br><span class="line">    <span class="variable">$klen</span> = strlen(<span class="variable">$key</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$len</span>; <span class="variable">$i</span>++) &#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$x</span> == <span class="variable">$klen</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$x</span> = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$char</span> .= <span class="variable">$key</span>[<span class="variable">$x</span>];<span class="comment">//在密钥中取$len个值</span></span><br><span class="line">        <span class="variable">$x</span>+=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$len</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="variable">$str</span> .= chr((ord(<span class="variable">$data</span>[<span class="variable">$i</span>]) + ord(<span class="variable">$char</span>[<span class="variable">$i</span>])) % <span class="number">128</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> base64_encode(<span class="variable">$str</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个属于一个对称加密(单密钥加密)，写一个逆向解密的脚本(实在是不太会写，要去好好学习一下)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">decrypt</span>(<span class="params"><span class="variable">$data</span>,<span class="variable">$key</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$data</span> = <span class="string">&#x27;fR4aHWwuFCYYVydFRxMqHhhCKBseH1dbFygrRxIWJ1UYFhotFjA=&#x27;</span>;<span class="comment">//密文</span></span><br><span class="line">    <span class="variable">$data</span> = base64_decode(<span class="variable">$data</span>);</span><br><span class="line">    <span class="variable">$key</span> = md5(<span class="string">&#x27;ISCC&#x27;</span>);</span><br><span class="line">    <span class="variable">$x</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="variable">$len</span> = strlen(<span class="variable">$data</span>);</span><br><span class="line">    <span class="variable">$klen</span> = strlen(<span class="variable">$key</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span> &lt;<span class="variable">$len</span>; <span class="variable">$i</span>++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$x</span> == <span class="variable">$klen</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$x</span> = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$char</span> .= <span class="variable">$key</span>[<span class="variable">$x</span>];</span><br><span class="line">        <span class="variable">$x</span>++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$len</span>; <span class="variable">$i</span>++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (ord(<span class="variable">$data</span>[<span class="variable">$i</span>]) &lt; ord(<span class="variable">$char</span>[<span class="variable">$i</span>]))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$str</span> .= chr((ord(<span class="variable">$data</span>[<span class="variable">$i</span>]) + <span class="number">128</span>) - ord(<span class="variable">$char</span>[<span class="variable">$i</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$str</span> .= chr(ord(<span class="variable">$data</span>[<span class="variable">$i</span>]) - ord(<span class="variable">$char</span>[<span class="variable">$i</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$str</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/18/BugkuCTFweb15-24/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -159,7 +256,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="BkingXD">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -268,7 +365,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="BkingXD">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -354,7 +451,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="BkingXD">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -477,7 +574,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
