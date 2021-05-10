@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>BkingXD</title>
+  <icon>https://bkingxd.github.io/icon.png</icon>
+  
+  <link href="https://bkingxd.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://bkingxd.github.io/"/>
+  <updated>2021-05-06T13:02:16.512Z</updated>
+  <id>https://bkingxd.github.io/</id>
+  
+  <author>
+    <name>BkingXD</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BUUCTFWeb1</title>
+    <link href="https://bkingxd.github.io/2021/05/06/BUUCTFWeb1/"/>
+    <id>https://bkingxd.github.io/2021/05/06/BUUCTFWeb1/</id>
+    <published>2021-05-06T13:00:26.000Z</published>
+    <updated>2021-05-06T13:02:16.512Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;HCTF-2018-WarmUp&quot;&gt;&lt;a href=&quot;#HCTF-2018-WarmUp&quot; class=&quot;headerlink&quot; title=&quot;[HCTF 2018]WarmUp&quot;&gt;&lt;/a&gt;[HCTF</summary>
+        
+      
+    
+    
+    
+    
+    <category term="CTF-web" scheme="https://bkingxd.github.io/tags/CTF-web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BugkuCTFweb25-33</title>
+    <link href="https://bkingxd.github.io/2021/04/20/BugkuCTFweb25-33/"/>
+    <id>https://bkingxd.github.io/2021/04/20/BugkuCTFweb25-33/</id>
+    <published>2021-04-20T14:40:19.000Z</published>
+    <updated>2021-05-10T15:01:55.255Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;web25&quot;&gt;&lt;a href=&quot;#web25&quot; class=&quot;headerlink&quot; title=&quot;web25&quot;&gt;&lt;/a&gt;web25&lt;/h1&gt;&lt;p&gt;hint：&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="CTF-web" scheme="https://bkingxd.github.io/tags/CTF-web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BugkuCTFweb15-24</title>
+    <link href="https://bkingxd.github.io/2021/04/13/BugkuCTFweb15-24/"/>
+    <id>https://bkingxd.github.io/2021/04/13/BugkuCTFweb15-24/</id>
+    <published>2021-04-13T14:39:27.000Z</published>
+    <updated>2021-05-10T15:01:44.193Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;web15&quot;&gt;&lt;a href=&quot;#web15&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="CTF-web" scheme="https://bkingxd.github.io/tags/CTF-web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BugkuCTF web1-14</title>
+    <link href="https://bkingxd.github.io/2021/04/12/BugkuCTFweb1-14/"/>
+    <id>https://bkingxd.github.io/2021/04/12/BugkuCTFweb1-14/</id>
+    <published>2021-04-12T12:29:55.000Z</published>
+    <updated>2021-04-12T12:35:41.850Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;web1&quot;&gt;&lt;a href=&quot;#web1&quot; class=&quot;headerlink&quot; title=&quot;web1&quot;&gt;&lt;/a&gt;web1&lt;/h1&gt;&lt;p&gt;F12查看源码，flag就在html源码中&lt;/p&gt;
+&lt;h1 id=&quot;web2&quot;&gt;&lt;a href=&quot;#web2&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="CTF-web" scheme="https://bkingxd.github.io/tags/CTF-web/"/>
+    
+  </entry>
+  
+</feed>
