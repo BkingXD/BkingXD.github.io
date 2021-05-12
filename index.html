@@ -165,7 +165,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/06/BUUCTFWeb1/" class="post-title-link" itemprop="url">BUUCTFWeb1</a>
+            <a href="/2021/05/06/BUUCTFWeb1/" class="post-title-link" itemprop="url">BUUCTF Web1</a>
         </h2>
 
         <div class="post-meta">
@@ -174,10 +174,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-06 21:00:26 / 修改时间：21:02:16" itemprop="dateCreated datePublished" datetime="2021-05-06T21:00:26+08:00">2021-05-06</time>
+              <time title="创建时间：2021-05-06 21:00:26" itemprop="dateCreated datePublished" datetime="2021-05-06T21:00:26+08:00">2021-05-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-12 21:22:46" itemprop="dateModified" datetime="2021-05-12T21:22:46+08:00">2021-05-12</time>
+              </span>
 
           
 
@@ -293,7 +299,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/20/BugkuCTFweb25-33/" class="post-title-link" itemprop="url">BugkuCTFweb25-33</a>
+            <a href="/2021/04/20/BugkuCTFweb25-33/" class="post-title-link" itemprop="url">BugkuCTF web25-33</a>
         </h2>
 
         <div class="post-meta">
@@ -310,7 +316,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-10 23:01:55" itemprop="dateModified" datetime="2021-05-10T23:01:55+08:00">2021-05-10</time>
+                <time title="修改时间：2021-05-12 21:44:12" itemprop="dateModified" datetime="2021-05-12T21:44:12+08:00">2021-05-12</time>
               </span>
 
           
@@ -344,7 +350,7 @@
 
 <p>通过分析代码，可以得出，应该需要寻找<code>$fn</code>的值，题目又提示了txt，用dirsearch扫一下目录，发现没有想要的txt文件，后来想到<code>file_get_contents()</code>这个函数，可将参数设为<code>php://input</code>，同时用POST传数据，此时POST的数据可被视为文件内容，于是BP抓包，构造<code>payload：GET:?ac=123&amp;fn=php://input POST:123</code>。</p>
 <p>但我感觉这个提示应该是有用的，我一开始的想法是没错的，后来看到了别的师傅的另一种解，目录下应该是有个<code>flag.txt</code>，直接访问可得里面内容为<code>bugku</code>，于是可以构造<code>payload：?ac=bugku&amp;fn=flag.txt</code>，但是我迷惑这个文件名的由来，难道真的只有大胆猜测得出？</p>
-<h1 id="web31"><a href="#web31" class="headerlink" title="web31"></a>web31</h1><p>打开网页，显示如下<img src="/.io//image-20210420215147492.png" alt="image-20210420215147492"></p>
+<h1 id="web31"><a href="#web31" class="headerlink" title="web31"></a>web31</h1><p>打开网页，显示如下<img src="./images/image-20210420215147492.png" alt="image-20210420215147492"></p>
 <p>“No such file or directory”，说明文件或路径不对，暗示需要寻找到其它文件和路径，于是拿dirsearch扫描，发现存在<code>/robots.txt</code>，访问该文件，回显为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow: &#x2F;resusl.php</span><br></pre></td></tr></table></figure>
 
@@ -396,7 +402,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/13/BugkuCTFweb15-24/" class="post-title-link" itemprop="url">BugkuCTFweb15-24</a>
+            <a href="/2021/04/13/BugkuCTFweb15-24/" class="post-title-link" itemprop="url">BugkuCTF web15-24</a>
         </h2>
 
         <div class="post-meta">
@@ -413,7 +419,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-10 23:01:44" itemprop="dateModified" datetime="2021-05-10T23:01:44+08:00">2021-05-10</time>
+                <time title="修改时间：2021-05-12 22:04:47" itemprop="dateModified" datetime="2021-05-12T22:04:47+08:00">2021-05-12</time>
               </span>
 
           
@@ -436,13 +442,13 @@
 <p><code>id=1</code>有回显，<code>id=1&#39;</code>无回显，说明字符型注入，闭合单引号。</p>
 <p>然后判断字段数，<code>1&#39; order by 4#</code>有回显，<code>1&#39; order by 5#</code>无回显，说明只有4列，判断为联合注入</p>
 <p>接着爆库名，<code>id=0&#39; union select 1,2,3,database()#</code></p>
-<p><img src="/.io//image-20210413202811990.png" alt="image-20210413202811990"></p>
+<p><img src="./images/image-20210413202811990.png" alt="image-20210413202811990.png"></p>
 <p>爆表名，<code>id=0&#39; union select 1,2,3,group_concat(table_name) from information_schema.tables where table_schema=database()#</code></p>
-<p><img src="/.io//image-20210413203752124.png" alt="image-20210413203752124"></p>
+<p><img src="./images/image-20210413203752124.png" alt="image-20210413203752124"></p>
 <p>爆列名，<code>id=0&#39; union select 1,2,3,group_concat(column_name) from information_schema.columns where table_schema=database()#</code>，</p>
-<p><img src="/.io//image-20210413204149361.png" alt="image-20210413204149361"></p>
+<p><img src="./images/image-20210413204149361.png" alt="image-20210413204149361"></p>
 <p>爆数据，<code>id=0&#39; union select 1,2,3,group_concat(skctf_flag) from fl4g#</code>，拿到flag</p>
-<p><img src="/.io//image-20210413210441344.png" alt="image-20210413210441344"></p>
+<p><img src="./images/image-20210413210441344.png" alt="image-20210413210441344"></p>
 <h1 id="web18"><a href="#web18" class="headerlink" title="web18"></a>web18</h1><p>页面显示“请在2s内计算老司机的车速是多少”和一长串计算式，不断刷新，会有显示“Give me value post about ”和一长串计算式，并且计算式在不断变化，应该是post传参数<code>value=计算式的值</code>，2s手算不现实，所以上python脚本，这里要注意，要保持session会话，令计算式不变</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">url=<span class="string">&#x27;http://114.67.246.176:15718/&#x27;</span></span><br><span class="line">s=requests.Session()<span class="comment">#保持会话，目的使计算式不改变</span></span><br><span class="line">source=s.get(url)</span><br><span class="line">experssion=re.search(<span class="string">r&quot;(\d+[+\-*])+(\d+)&quot;</span>,source.text).group()</span><br><span class="line"><span class="comment">#正则表达式匹配计算式,group()返回为字符串</span></span><br><span class="line">result=<span class="built_in">eval</span>(experssion)<span class="comment">#eval()函数用来执行一个字符串表达式，并返回表达式的值</span></span><br><span class="line">data=&#123;<span class="string">&#x27;value&#x27;</span>:result&#125;</span><br><span class="line">flag=s.post(url=url,data=data).text<span class="comment">#post传参，拿到flag</span></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
 
