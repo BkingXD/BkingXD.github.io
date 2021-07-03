@@ -6,7 +6,7 @@
   <link href="https://bkingxd.github.io/atom.xml" rel="self"/>
   
   <link href="https://bkingxd.github.io/"/>
-  <updated>2021-05-12T13:22:46.908Z</updated>
+  <updated>2021-07-03T01:19:30.286Z</updated>
   <id>https://bkingxd.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BUUCTF Web2</title>
+    <link href="https://bkingxd.github.io/2021/07/03/BUUCTFWeb2/"/>
+    <id>https://bkingxd.github.io/2021/07/03/BUUCTFWeb2/</id>
+    <published>2021-07-03T01:16:05.000Z</published>
+    <updated>2021-07-03T01:19:30.286Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;RoarCTF-2019-Easy-Calc&quot;&gt;&lt;a href=&quot;#RoarCTF-2019-Easy-Calc&quot; class=&quot;headerlink&quot; title=&quot;[RoarCTF 2019]Easy Calc&quot;&gt;&lt;/a&gt;[RoarCTF 2019]Easy</summary>
+        
+      
+    
+    
+    
+    
+    <category term="CTF-web" scheme="https://bkingxd.github.io/tags/CTF-web/"/>
+    
+  </entry>
   
   <entry>
     <title>BUUCTF Web1</title>
