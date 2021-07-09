@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/07/03/BUUCTFWeb2/">
+    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/07/03/BUUCTF%20Web2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/07/03/BUUCTFWeb2/" class="post-title-link" itemprop="url">BUUCTF Web2</a>
+            <a href="/2021/07/03/BUUCTF%20Web2/" class="post-title-link" itemprop="url">BUUCTF Web2</a>
         </h2>
 
         <div class="post-meta">
@@ -313,7 +313,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/05/06/BUUCTFWeb1/">
+    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/05/06/BUUCTF%20Web1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -327,7 +327,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/06/BUUCTFWeb1/" class="post-title-link" itemprop="url">BUUCTF Web1</a>
+            <a href="/2021/05/06/BUUCTF%20Web1/" class="post-title-link" itemprop="url">BUUCTF Web1</a>
         </h2>
 
         <div class="post-meta">
@@ -344,7 +344,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 21:22:46" itemprop="dateModified" datetime="2021-05-12T21:22:46+08:00">2021-05-12</time>
+                <time title="修改时间：2021-07-09 15:18:59" itemprop="dateModified" datetime="2021-07-09T15:18:59+08:00">2021-07-09</time>
               </span>
 
           
@@ -380,7 +380,7 @@
 
 <p>这里在查询<code>1919810931114514</code>数据表时加了反引号，是因为在windows系统下，反引号（`）是数据库、表、索引、列和别名用的引用符。</p>
 <p>到这一步，我们可以得知，我们输入<code>1</code>，回显的应该是当前数据库下<code>words</code>这张表中的数据，所以这里的后端查询代码应该是<code>select id,data from words where id=</code>，而flag则在<code>1919810931114514</code>这张表中，这里可以用重命名换表输出，最后输入永真句<code>0&#39; or 1=1#</code>，就能得到flag。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&#39;;rename table words to word;rename table &#96;1919810931114514&#96; to words;alter table words change flag id varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;desc  words;#</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0&#39;;rename table words to word;rename table &#96;1919810931114514&#96; to words;alter table words change flag id varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;desc  words;#</span><br><span class="line"></span><br><span class="line">0&#39;;rename table words to word;rename table &#96;1919810931114514&#96; to words;alter table words change flag id varchar(100);#</span><br></pre></td></tr></table></figure>
 
 <p>看了别的师傅的WP，发现这里还可以用预处理语句，但不是很懂，涨了点知识，再学吧</p>
 <h1 id="极客大挑战-2019-Havefun"><a href="#极客大挑战-2019-Havefun" class="headerlink" title="[极客大挑战 2019]Havefun"></a>[极客大挑战 2019]Havefun</h1><p>查看源码，发现以下代码，<code>payload：url/?cat=dog</code>，回显flag</p>
@@ -447,7 +447,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/04/20/BugkuCTFweb25-33/">
+    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/04/20/BugkuCTF%20web25-33/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -461,7 +461,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/20/BugkuCTFweb25-33/" class="post-title-link" itemprop="url">BugkuCTF web25-33</a>
+            <a href="/2021/04/20/BugkuCTF%20web25-33/" class="post-title-link" itemprop="url">BugkuCTF web25-33</a>
         </h2>
 
         <div class="post-meta">
@@ -550,7 +550,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/04/13/BugkuCTFweb15-24/">
+    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/04/13/BugkuCTF%20web15-24/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -564,7 +564,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/13/BugkuCTFweb15-24/" class="post-title-link" itemprop="url">BugkuCTF web15-24</a>
+            <a href="/2021/04/13/BugkuCTF%20web15-24/" class="post-title-link" itemprop="url">BugkuCTF web15-24</a>
         </h2>
 
         <div class="post-meta">
@@ -665,7 +665,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/04/12/BugkuCTFweb1-14/">
+    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/04/12/BugkuCTF%20web1-14/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -679,7 +679,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/12/BugkuCTFweb1-14/" class="post-title-link" itemprop="url">BugkuCTF web1-14</a>
+            <a href="/2021/04/12/BugkuCTF%20web1-14/" class="post-title-link" itemprop="url">BugkuCTF web1-14</a>
         </h2>
 
         <div class="post-meta">

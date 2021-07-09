@@ -23,17 +23,17 @@
   <meta name="description" content="[HCTF 2018]WarmUp查看源码，发现，访问，代码审计 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&lt;?php    highlight_file(__FILE__);    class emmm    &amp;#123;        public st">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUUCTF Web1">
-<meta property="og:url" content="https://bkingxd.github.io/2021/05/06/BUUCTFWeb1/index.html">
+<meta property="og:url" content="https://bkingxd.github.io/2021/05/06/BUUCTF%20Web1/index.html">
 <meta property="og:site_name" content="BkingXD">
 <meta property="og:description" content="[HCTF 2018]WarmUp查看源码，发现，访问，代码审计 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&lt;?php    highlight_file(__FILE__);    class emmm    &amp;#123;        public st">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-06T13:00:26.000Z">
-<meta property="article:modified_time" content="2021-05-12T13:22:46.908Z">
+<meta property="article:modified_time" content="2021-07-09T07:18:59.615Z">
 <meta property="article:author" content="BkingXD">
 <meta property="article:tag" content="CTF-web">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://bkingxd.github.io/2021/05/06/BUUCTFWeb1/">
+<link rel="canonical" href="https://bkingxd.github.io/2021/05/06/BUUCTF%20Web1/">
 
 
 <script id="page-configurations">
@@ -157,7 +157,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/05/06/BUUCTFWeb1/">
+    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/05/06/BUUCTF%20Web1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -187,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 21:22:46" itemprop="dateModified" datetime="2021-05-12T21:22:46+08:00">2021-05-12</time>
+                <time title="修改时间：2021-07-09 15:18:59" itemprop="dateModified" datetime="2021-07-09T15:18:59+08:00">2021-07-09</time>
               </span>
 
           
@@ -223,7 +223,7 @@
 
 <p>这里在查询<code>1919810931114514</code>数据表时加了反引号，是因为在windows系统下，反引号（`）是数据库、表、索引、列和别名用的引用符。</p>
 <p>到这一步，我们可以得知，我们输入<code>1</code>，回显的应该是当前数据库下<code>words</code>这张表中的数据，所以这里的后端查询代码应该是<code>select id,data from words where id=</code>，而flag则在<code>1919810931114514</code>这张表中，这里可以用重命名换表输出，最后输入永真句<code>0&#39; or 1=1#</code>，就能得到flag。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&#39;;rename table words to word;rename table &#96;1919810931114514&#96; to words;alter table words change flag id varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;desc  words;#</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0&#39;;rename table words to word;rename table &#96;1919810931114514&#96; to words;alter table words change flag id varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;desc  words;#</span><br><span class="line"></span><br><span class="line">0&#39;;rename table words to word;rename table &#96;1919810931114514&#96; to words;alter table words change flag id varchar(100);#</span><br></pre></td></tr></table></figure>
 
 <p>看了别的师傅的WP，发现这里还可以用预处理语句，但不是很懂，涨了点知识，再学吧</p>
 <h1 id="极客大挑战-2019-Havefun"><a href="#极客大挑战-2019-Havefun" class="headerlink" title="[极客大挑战 2019]Havefun"></a>[极客大挑战 2019]Havefun</h1><p>查看源码，发现以下代码，<code>payload：url/?cat=dog</code>，回显flag</p>
@@ -289,11 +289,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/20/BugkuCTFweb25-33/" rel="prev" title="BugkuCTF web25-33">
+    <a href="/2021/04/20/BugkuCTF%20web25-33/" rel="prev" title="BugkuCTF web25-33">
       <i class="fa fa-chevron-left"></i> BugkuCTF web25-33
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/07/03/BUUCTFWeb2/" rel="next" title="BUUCTF Web2">
+    <a href="/2021/07/03/BUUCTF%20Web2/" rel="next" title="BUUCTF Web2">
       BUUCTF Web2 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
