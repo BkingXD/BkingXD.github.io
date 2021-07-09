@@ -6,7 +6,7 @@
   <link href="https://bkingxd.github.io/atom.xml" rel="self"/>
   
   <link href="https://bkingxd.github.io/"/>
-  <updated>2021-07-07T06:53:19.135Z</updated>
+  <updated>2021-07-09T08:47:17.694Z</updated>
   <id>https://bkingxd.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://bkingxd.github.io/2021/07/03/BUUCTF%20Web2/"/>
     <id>https://bkingxd.github.io/2021/07/03/BUUCTF%20Web2/</id>
     <published>2021-07-03T01:16:05.000Z</published>
-    <updated>2021-07-07T06:53:19.135Z</updated>
+    <updated>2021-07-09T08:47:17.694Z</updated>
     
     
       
@@ -37,6 +37,8 @@
     
     <category term="CTF-web" scheme="https://bkingxd.github.io/tags/CTF-web/"/>
     
+    <category term="BUUCTF-Web" scheme="https://bkingxd.github.io/tags/BUUCTF-Web/"/>
+    
   </entry>
   
   <entry>
@@ -44,7 +46,7 @@
     <link href="https://bkingxd.github.io/2021/05/06/BUUCTF%20Web1/"/>
     <id>https://bkingxd.github.io/2021/05/06/BUUCTF%20Web1/</id>
     <published>2021-05-06T13:00:26.000Z</published>
-    <updated>2021-07-09T07:18:59.615Z</updated>
+    <updated>2021-07-09T08:47:12.791Z</updated>
     
     
       
@@ -60,6 +62,8 @@
     
     <category term="CTF-web" scheme="https://bkingxd.github.io/tags/CTF-web/"/>
     
+    <category term="BUUCTF-Web" scheme="https://bkingxd.github.io/tags/BUUCTF-Web/"/>
+    
   </entry>
   
   <entry>
@@ -67,7 +71,7 @@
     <link href="https://bkingxd.github.io/2021/04/20/BugkuCTF%20web25-33/"/>
     <id>https://bkingxd.github.io/2021/04/20/BugkuCTF%20web25-33/</id>
     <published>2021-04-20T14:40:19.000Z</published>
-    <updated>2021-05-12T13:44:12.268Z</updated>
+    <updated>2021-07-09T08:47:06.089Z</updated>
     
     
       
@@ -83,6 +87,8 @@
     
     <category term="CTF-web" scheme="https://bkingxd.github.io/tags/CTF-web/"/>
     
+    <category term="BugkuCTF-web" scheme="https://bkingxd.github.io/tags/BugkuCTF-web/"/>
+    
   </entry>
   
   <entry>
@@ -90,7 +96,7 @@
     <link href="https://bkingxd.github.io/2021/04/13/BugkuCTF%20web15-24/"/>
     <id>https://bkingxd.github.io/2021/04/13/BugkuCTF%20web15-24/</id>
     <published>2021-04-13T14:39:27.000Z</published>
-    <updated>2021-05-12T14:04:47.043Z</updated>
+    <updated>2021-07-09T08:47:01.121Z</updated>
     
     
       
@@ -106,6 +112,8 @@
     
     <category term="CTF-web" scheme="https://bkingxd.github.io/tags/CTF-web/"/>
     
+    <category term="BugkuCTF-web" scheme="https://bkingxd.github.io/tags/BugkuCTF-web/"/>
+    
   </entry>
   
   <entry>
@@ -113,7 +121,7 @@
     <link href="https://bkingxd.github.io/2021/04/12/BugkuCTF%20web1-14/"/>
     <id>https://bkingxd.github.io/2021/04/12/BugkuCTF%20web1-14/</id>
     <published>2021-04-12T12:29:55.000Z</published>
-    <updated>2021-04-12T12:35:41.850Z</updated>
+    <updated>2021-07-09T08:46:53.921Z</updated>
     
     
       
@@ -129,6 +137,8 @@
     
     
     <category term="CTF-web" scheme="https://bkingxd.github.io/tags/CTF-web/"/>
+    
+    <category term="BugkuCTF-web" scheme="https://bkingxd.github.io/tags/BugkuCTF-web/"/>
     
   </entry>
   
