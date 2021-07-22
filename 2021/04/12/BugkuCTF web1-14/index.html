@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"bkingxd.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="web1F12查看源码，flag就在html源码中 web2题目叫我们输入验证，输入发现只能输入一个数字，F12查看源码，发现input处有长度限制，直接改html源码处的长度 web31234$what&#x3D;$_GET[&#39;what&#39;];echo $what;if($what&#x3D;&#x3D;&#39;flag&#39;)echo &#39;flag&amp;#123;****">
+  <meta name="description" content="BugkuCTF web1-14 的WP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BugkuCTF web1-14">
 <meta property="og:url" content="https://bkingxd.github.io/2021/04/12/BugkuCTF%20web1-14/index.html">
 <meta property="og:site_name" content="BkingXD">
-<meta property="og:description" content="web1F12查看源码，flag就在html源码中 web2题目叫我们输入验证，输入发现只能输入一个数字，F12查看源码，发现input处有长度限制，直接改html源码处的长度 web31234$what&#x3D;$_GET[&#39;what&#39;];echo $what;if($what&#x3D;&#x3D;&#39;flag&#39;)echo &#39;flag&amp;#123;****">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:description" content="BugkuCTF web1-14 的WP">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-12T12:29:55.000Z">
-<meta property="article:modified_time" content="2021-07-09T08:46:53.921Z">
+<meta property="article:modified_time" content="2021-07-22T15:01:42.352Z">
 <meta property="article:author" content="BkingXD">
 <meta property="article:tag" content="CTF-web">
 <meta property="article:tag" content="BugkuCTF-web">
@@ -43,7 +43,7 @@
     sidebar: "",
     isHome : false,
     isPost : true,
-    lang   : 'zh-CN'
+    lang   : 'en'
   };
 </script>
 
@@ -88,7 +88,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -117,17 +117,22 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">1</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">5</span></a>
 
   </li>
   </ul>
@@ -157,7 +162,7 @@
     
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/04/12/BugkuCTF%20web1-14/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -179,17 +184,26 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
 
-              <time title="创建时间：2021-04-12 20:29:55" itemprop="dateCreated datePublished" datetime="2021-04-12T20:29:55+08:00">2021-04-12</time>
+              <time title="Created: 2021-04-12 20:29:55" itemprop="dateCreated datePublished" datetime="2021-04-12T20:29:55+08:00">2021-04-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-09 16:46:53" itemprop="dateModified" datetime="2021-07-09T16:46:53+08:00">2021-07-09</time>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-22 23:01:42" itemprop="dateModified" datetime="2021-07-22T23:01:42+08:00">2021-07-22</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a>
+                </span>
+            </span>
 
           
 
@@ -202,7 +216,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="web1"><a href="#web1" class="headerlink" title="web1"></a>web1</h1><p>F12查看源码，flag就在html源码中</p>
+        <p>BugkuCTF web1-14 的WP</p>
+<span id="more"></span>
+
+<h1 id="web1"><a href="#web1" class="headerlink" title="web1"></a>web1</h1><p>F12查看源码，flag就在html源码中</p>
 <h1 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h1><p>题目叫我们输入验证，输入发现只能输入一个数字，F12查看源码，发现input处有长度限制，直接改html源码处的长度</p>
 <h1 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$what&#x3D;$_GET[&#39;what&#39;];</span><br><span class="line">echo $what;</span><br><span class="line">if($what&#x3D;&#x3D;&#39;flag&#39;)</span><br><span class="line">echo &#39;flag&#123;****&#125;&#39;;</span><br></pre></td></tr></table></figure>
 
@@ -302,10 +319,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
@@ -326,18 +343,27 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">5</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/BkingXD" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;BkingXD" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fas fa-rss fa-fw"></i>RSS</a>
       </span>
@@ -370,7 +396,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">BkingXD</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
         
@@ -387,6 +413,7 @@
   </div>
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
