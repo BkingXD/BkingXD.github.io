@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20210413204149361.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20210413210441344.png">
 <meta property="article:published_time" content="2021-04-13T14:39:27.000Z">
-<meta property="article:modified_time" content="2021-07-23T02:58:06.134Z">
+<meta property="article:modified_time" content="2021-07-25T10:16:28.591Z">
 <meta property="article:author" content="BkingXD">
 <meta property="article:tag" content="web">
 <meta property="article:tag" content="BugkuCTF">
@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">3</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">4</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">7</span></a>
 
   </li>
   </ul>
@@ -200,7 +200,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-23 10:58:06" itemprop="dateModified" datetime="2021-07-23T10:58:06+08:00">2021-07-23</time>
+                <time title="Modified: 2021-07-25 18:16:28" itemprop="dateModified" datetime="2021-07-25T18:16:28+08:00">2021-07-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,7 +245,7 @@
 <h1 id="web18"><a href="#web18" class="headerlink" title="web18"></a>web18</h1><p>页面显示“请在2s内计算老司机的车速是多少”和一长串计算式，不断刷新，会有显示“Give me value post about ”和一长串计算式，并且计算式在不断变化，应该是post传参数<code>value=计算式的值</code>，2s手算不现实，所以上python脚本，这里要注意，要保持session会话，令计算式不变</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">url=<span class="string">&#x27;http://114.67.246.176:15718/&#x27;</span></span><br><span class="line">s=requests.Session()<span class="comment">#保持会话，目的使计算式不改变</span></span><br><span class="line">source=s.get(url)</span><br><span class="line">experssion=re.search(<span class="string">r&quot;(\d+[+\-*])+(\d+)&quot;</span>,source.text).group()</span><br><span class="line"><span class="comment">#正则表达式匹配计算式,group()返回为字符串</span></span><br><span class="line">result=<span class="built_in">eval</span>(experssion)<span class="comment">#eval()函数用来执行一个字符串表达式，并返回表达式的值</span></span><br><span class="line">data=&#123;<span class="string">&#x27;value&#x27;</span>:result&#125;</span><br><span class="line">flag=s.post(url=url,data=data).text<span class="comment">#post传参，拿到flag</span></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
 
-<h1 id="web19"><a href="#web19" class="headerlink" title="web19"></a>web19</h1><p>提示“速度要快”，果断BP抓包，发现Response头里有<code>flag:6LeR55qE6L+Y5LiN6ZSZ77yM57uZ5L2gZmxhZ+WQpzogTXpJME5URXo=</code>，base64解码得<code>跑的还不错，给你flag吧: MzI0NTEz</code>，显然这是个假的flag，看响应页面，发现还有一句<!-- OK ,now you have to post the margin what you find -->，margin[是CSS中简写属性，在一个声明中设置所有外边距属性]，所以参数应该是数字，<code>MzI0NTEz</code>应该再base64解码一次，得<code>324513</code>，post参数<code>margin=324513</code>，发现还没有flag，联想到上一题，可能是session一直在变，所以写python脚本</p>
+<h1 id="web19"><a href="#web19" class="headerlink" title="web19"></a>web19</h1><p>提示“速度要快”，果断BP抓包，发现Response头里有<code>flag:6LeR55qE6L+Y5LiN6ZSZ77yM57uZ5L2gZmxhZ+WQpzogTXpJME5URXo=</code>，base64解码得<code>跑的还不错，给你flag吧: MzI0NTEz</code>，显然这是个假的flag，看响应页面，发现还有一句“ OK ,now you have to post the margin what you find ”，margin[是CSS中简写属性，在一个声明中设置所有外边距属性]，所以参数应该是数字，<code>MzI0NTEz</code>应该再base64解码一次，得<code>324513</code>，post参数<code>margin=324513</code>，发现还没有flag，联想到上一题，可能是session一直在变，所以写python脚本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">url=<span class="string">&#x27;http://114.67.246.176:13484/&#x27;</span></span><br><span class="line">s=requests.Session()<span class="comment">#保持会话，目的使get与post时Fflag不变</span></span><br><span class="line">Fflag=s.get(url=url).headers[<span class="string">&#x27;flag&#x27;</span>]<span class="comment">#获得Response头中得flag值</span></span><br><span class="line">Fflag=base64.b64decode(Fflag).decode(<span class="string">&#x27;UTF-8&#x27;</span>)<span class="comment">#第一次base64解码，并UTF-8解码成字符串</span></span><br><span class="line">Fflag=re.search(<span class="string">&#x27;\w+$&#x27;</span>,Fflag).group()<span class="comment">#正则匹配，拿要传参的值</span></span><br><span class="line">Fflag=base64.b64decode(Fflag).decode(<span class="string">&#x27;UTF-8&#x27;</span>)<span class="comment">#第二次base64解码</span></span><br><span class="line">post=&#123;<span class="string">&#x27;margin&#x27;</span>:Fflag&#125;</span><br><span class="line">Tflag=s.post(url=url,data=post).text<span class="comment">#传参拿flag</span></span><br><span class="line"><span class="built_in">print</span>(Tflag)</span><br></pre></td></tr></table></figure>
 
 <h1 id="web20"><a href="#web20" class="headerlink" title="web20"></a>web20</h1><p>提示“cookies欺骗”，打开网页，发现页面上打印一串字符串乱码，看到<code>url=http://114.67.246.176:14120/index.php?line=&amp;filename=a2V5cy50eHQ=</code>，把<code>filename</code>的值base64解码得到<code>keys.txt</code>，根据这个url，大概可以得知，<code>filename</code>是请求文件参数，<code>line</code>则是请求文件第几行的内容，尝试传递<code>keys.txt</code>，发现没有回显，所以<code>filename</code>这个参数需要base64编码，我们将<code>index.php</code>编码后传入<code>filename</code>，果真发现回显，并且<code>line</code>的值不同，回显不同，观察回显，猜测应该是页面源码，用python获取完整源码</p>
@@ -254,7 +254,7 @@
 <p>拿到<code>index.php</code>源码，然后分析源码，BP伪造cookie，拿到flag</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="variable">$file</span>=base64_decode(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;filename&#x27;</span>])?<span class="variable">$_GET</span>[<span class="string">&#x27;filename&#x27;</span>]:<span class="string">&quot;&quot;</span>);</span><br><span class="line"><span class="variable">$line</span>=<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;line&#x27;</span>])?intval(<span class="variable">$_GET</span>[<span class="string">&#x27;line&#x27;</span>]):<span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$file</span>==<span class="string">&#x27;&#x27;</span>) header(<span class="string">&quot;location:index.php?line=&amp;filename=a2V5cy50eHQ=&quot;</span>);</span><br><span class="line"><span class="variable">$file_list</span> = <span class="keyword">array</span>(</span><br><span class="line"><span class="string">&#x27;0&#x27;</span> =&gt;<span class="string">&#x27;keys.txt&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;1&#x27;</span> =&gt;<span class="string">&#x27;index.php&#x27;</span>,</span><br><span class="line">);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_COOKIE</span>[<span class="string">&#x27;margin&#x27;</span>]) &amp;&amp; <span class="variable">$_COOKIE</span>[<span class="string">&#x27;margin&#x27;</span>]==<span class="string">&#x27;margin&#x27;</span>)&#123;</span><br><span class="line"><span class="variable">$file_list</span>[<span class="number">2</span>]=<span class="string">&#x27;keys.php&#x27;</span>;</span><br><span class="line">&#125;<span class="comment">//这里就用到了提示，使cookie的参数为margin=margin，将keys.php值赋给$file_list[2]</span></span><br><span class="line"><span class="keyword">if</span>(in_array(<span class="variable">$file</span>, <span class="variable">$file_list</span>))&#123;</span><br><span class="line"><span class="variable">$fa</span> = file(<span class="variable">$file</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$fa</span>[<span class="variable">$line</span>];</span><br><span class="line">&#125;<span class="comment">//如果传进来的参数$file在数组$file_list中，就会回显$file，所以将keys.php编码后传入，就能拿到flag</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="web21"><a href="#web21" class="headerlink" title="web21"></a>web21</h1><p>页面上显示”never never never give up !!!”，然后观察到<code>http://114.67.246.176:10230/hello.php?id=1</code>，用BP爆破以下id的值，到10000都没有什么发现，F12看了以下源码，发现<!--1p.html-->，直接BP抓<code>http://114.67.246.176:10230/1p.html</code>的包，发现Javascript代码</p>
+<h1 id="web21"><a href="#web21" class="headerlink" title="web21"></a>web21</h1><p>页面上显示”never never never give up !!!”，然后观察到<code>http://114.67.246.176:10230/hello.php?id=1</code>，用BP爆破以下id的值，到10000都没有什么发现，F12看了以下源码，发现<code>1p.html</code>，直接BP抓<code>http://114.67.246.176:10230/1p.html</code>的包，发现Javascript代码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT LANGUAGE=<span class="string">&quot;Javascript&quot;</span>&gt;</span><br><span class="line">&lt;!--</span><br><span class="line"><span class="keyword">var</span> Words =<span class="string">&quot;%3Cscript%3Ewindow.location.href%3D&#x27;http%3A%2F%2Fwww.bugku.com&#x27;%3B%3C%2Fscript%3E%20%0A%3C!--JTIyJTNCaWYoISUyNF9HRVQlNUInaWQnJTVEKSUwQSU3QiUwQSUwOWhlYWRlcignTG9jYXRpb24lM0ElMjBoZWxsby5waHAlM0ZpZCUzRDEnKSUzQiUwQSUwOWV4aXQoKSUzQiUwQSU3RCUwQSUyNGlkJTNEJTI0X0dFVCU1QidpZCclNUQlM0IlMEElMjRhJTNEJTI0X0dFVCU1QidhJyU1RCUzQiUwQSUyNGIlM0QlMjRfR0VUJTVCJ2InJTVEJTNCJTBBaWYoc3RyaXBvcyglMjRhJTJDJy4nKSklMEElN0IlMEElMDllY2hvJTIwJ25vJTIwbm8lMjBubyUyMG5vJTIwbm8lMjBubyUyMG5vJyUzQiUwQSUwOXJldHVybiUyMCUzQiUwQSU3RCUwQSUyNGRhdGElMjAlM0QlMjAlNDBmaWxlX2dldF9jb250ZW50cyglMjRhJTJDJ3InKSUzQiUwQWlmKCUyNGRhdGElM0QlM0QlMjJidWdrdSUyMGlzJTIwYSUyMG5pY2UlMjBwbGF0ZWZvcm0hJTIyJTIwYW5kJTIwJTI0aWQlM0QlM0QwJTIwYW5kJTIwc3RybGVuKCUyNGIpJTNFNSUyMGFuZCUyMGVyZWdpKCUyMjExMSUyMi5zdWJzdHIoJTI0YiUyQzAlMkMxKSUyQyUyMjExMTQlMjIpJTIwYW5kJTIwc3Vic3RyKCUyNGIlMkMwJTJDMSkhJTNENCklMEElN0IlMEElMDklMjRmbGFnJTIwJTNEJTIwJTIyZmxhZyU3QioqKioqKioqKioqJTdEJTIyJTBBJTdEJTBBZWxzZSUwQSU3QiUwQSUwOXByaW50JTIwJTIybmV2ZXIlMjBuZXZlciUyMG5ldmVyJTIwZ2l2ZSUyMHVwJTIwISEhJTIyJTNCJTBBJTdEJTBBJTBBJTBBJTNGJTNF--%3E&quot;</span> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OutWord</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">var</span> NewWords;</span><br><span class="line">NewWords = <span class="built_in">unescape</span>(Words);<span class="comment">//对Words进行url解码</span></span><br><span class="line"><span class="built_in">document</span>.write(NewWords);<span class="comment">//输出,因为Words解码后存在一个跳转页面的script，所以直接访问会跳转到首页</span></span><br><span class="line">&#125; </span><br><span class="line">OutWord();</span><br><span class="line"><span class="comment">// --&gt;</span></span><br><span class="line">&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
 
 <p>对中间一长串进行base64解码，得到：</p>
@@ -377,7 +377,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -390,7 +390,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

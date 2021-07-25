@@ -6,7 +6,7 @@
   <link href="https://bkingxd.github.io/atom.xml" rel="self"/>
   
   <link href="https://bkingxd.github.io/"/>
-  <updated>2021-07-23T03:34:19.935Z</updated>
+  <updated>2021-07-25T10:23:52.223Z</updated>
   <id>https://bkingxd.github.io/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ctfshow信息搜集</title>
+    <link href="https://bkingxd.github.io/2021/07/25/ctfshow%20WEB%E5%85%A5%E9%97%A81-20/"/>
+    <id>https://bkingxd.github.io/2021/07/25/ctfshow%20WEB%E5%85%A5%E9%97%A81-20/</id>
+    <published>2021-07-25T09:59:05.000Z</published>
+    <updated>2021-07-25T10:23:52.223Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;开始ctfshow的web入门了，这个平台web系列的题目分类详细，覆盖面也广，从web萌新到web大佬的路就从刷ctfshow的web题开始，记录下信息搜集这一部分的WP。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
+    
+    
+    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
+    
+    <category term="ctfshow" scheme="https://bkingxd.github.io/tags/ctfshow/"/>
+    
+  </entry>
+  
+  <entry>
     <title>BUUCTF Web2</title>
     <link href="https://bkingxd.github.io/2021/07/03/BUUCTF%20Web2/"/>
     <id>https://bkingxd.github.io/2021/07/03/BUUCTF%20Web2/</id>
     <published>2021-07-03T01:16:05.000Z</published>
-    <updated>2021-07-23T03:34:19.935Z</updated>
+    <updated>2021-07-25T10:19:39.657Z</updated>
     
     
     <summary type="html">&lt;p&gt;持续更新的BUU刷题记录，继上一次的记录，又12道web题的WP。&lt;/p&gt;</summary>
@@ -42,7 +63,7 @@
     <link href="https://bkingxd.github.io/2021/05/06/BUUCTF%20Web1/"/>
     <id>https://bkingxd.github.io/2021/05/06/BUUCTF%20Web1/</id>
     <published>2021-05-06T13:00:26.000Z</published>
-    <updated>2021-07-23T03:04:23.755Z</updated>
+    <updated>2021-07-25T10:18:18.899Z</updated>
     
     
     <summary type="html">&lt;p&gt;开始在BUU上刷题了，BUU都是一些比赛的原题，感觉有些难度，但会坚持下去，刷题越多，学到的越多！这是BUU上web部分的前12道题的WP，之后也会一直更新。&lt;/p&gt;</summary>
@@ -63,7 +84,7 @@
     <link href="https://bkingxd.github.io/2021/04/29/BugkuCTF%20web34-36/"/>
     <id>https://bkingxd.github.io/2021/04/29/BugkuCTF%20web34-36/</id>
     <published>2021-04-29T12:29:55.000Z</published>
-    <updated>2021-07-23T03:00:31.306Z</updated>
+    <updated>2021-07-25T10:17:44.038Z</updated>
     
     
     <summary type="html">&lt;p&gt;Bugku刷题记录，web34-36的WP&lt;/p&gt;</summary>
@@ -105,7 +126,7 @@
     <link href="https://bkingxd.github.io/2021/04/13/BugkuCTF%20web15-24/"/>
     <id>https://bkingxd.github.io/2021/04/13/BugkuCTF%20web15-24/</id>
     <published>2021-04-13T14:39:27.000Z</published>
-    <updated>2021-07-23T02:58:06.134Z</updated>
+    <updated>2021-07-25T10:16:28.591Z</updated>
     
     
     <summary type="html">&lt;p&gt;继续在Bugku上做题，web15-24的WP，学到很多。&lt;/p&gt;</summary>
@@ -126,7 +147,7 @@
     <link href="https://bkingxd.github.io/2021/04/12/BugkuCTF%20web1-14/"/>
     <id>https://bkingxd.github.io/2021/04/12/BugkuCTF%20web1-14/</id>
     <published>2021-04-12T12:29:55.000Z</published>
-    <updated>2021-07-23T02:56:20.210Z</updated>
+    <updated>2021-07-25T10:15:00.269Z</updated>
     
     
     <summary type="html">&lt;p&gt;初学CTF，选择了方向web，Bugku上的做题记录，从web1到web14的WP，希望有所收获！&lt;/p&gt;</summary>

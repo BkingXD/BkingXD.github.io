@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon(32x132).png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/bitbug_favicon(16x16).png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1/themes/black/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bkingxd.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="开始ctfshow的web入门了，这个平台web系列的题目分类详细，覆盖面也广，从web萌新到web大佬的路就从刷ctfshow的web题开始，记录下信息搜集这一部分的WP。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ctfshow信息搜集">
+<meta property="og:url" content="https://bkingxd.github.io/2021/07/25/ctfshow%20WEB%E5%85%A5%E9%97%A81-20/index.html">
+<meta property="og:site_name" content="BkingXD">
+<meta property="og:description" content="开始ctfshow的web入门了，这个平台web系列的题目分类详细，覆盖面也广，从web萌新到web大佬的路就从刷ctfshow的web题开始，记录下信息搜集这一部分的WP。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-25T09:59:05.000Z">
+<meta property="article:modified_time" content="2021-07-25T10:23:52.223Z">
+<meta property="article:author" content="BkingXD">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="ctfshow">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://bkingxd.github.io/2021/07/25/ctfshow%20WEB%E5%85%A5%E9%97%A81-20/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>ctfshow信息搜集 | BkingXD</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="BkingXD" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">BkingXD</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">1</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">7</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://bkingxd.github.io/2021/07/25/ctfshow%20WEB%E5%85%A5%E9%97%A81-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/578879781.png">
+      <meta itemprop="name" content="BkingXD">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BkingXD">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ctfshow信息搜集
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-07-25 17:59:05 / Modified: 18:23:52" itemprop="dateCreated datePublished" datetime="2021-07-25T17:59:05+08:00">2021-07-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>开始ctfshow的web入门了，这个平台web系列的题目分类详细，覆盖面也广，从web萌新到web大佬的路就从刷ctfshow的web题开始，记录下信息搜集这一部分的WP。</p>
+<span id="more"></span>
+
+<h2 id="web1"><a href="#web1" class="headerlink" title="web1"></a>web1</h2><p>F12查看源码，flag就在源码注释里。</p>
+<h2 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h2><blockquote>
+<p>js前台拦截 === 无效操作</p>
+</blockquote>
+<p>打开靶机，无法查看源码，应该是js拦截了窗口，BP抓包看源码，有flag。</p>
+<h2 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h2><blockquote>
+<p>没思路的时候抓个包看看，可能会有意外收获</p>
+</blockquote>
+<p>抓包，返回头中有flag。</p>
+<h2 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h2><blockquote>
+<p>总有人把后台地址写入robots，帮黑阔大佬们引路</p>
+</blockquote>
+<p>访问<code>/robots.txt</code>，发现<code>/flagishere.txt</code>，直接访问得到flag。</p>
+<h2 id="web5"><a href="#web5" class="headerlink" title="web5"></a>web5</h2><blockquote>
+<p>phps源码泄露有时候能帮上忙</p>
+</blockquote>
+<p>下载<code>/index.phps</code>，得到源码中的flag。</p>
+<h2 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h2><blockquote>
+<p>解压源码到当前目录，测试正常，收工</p>
+</blockquote>
+<p>根据要解压的提示，下载<code>/www.zip</code>得到源码，dirsearch应该可以扫出来，但网站实在没法扫，猜测最有可能的<code>/www.zip</code>，源码说flag在<code>/fl000g.txt</code>，备份文件给的是假flag，直接去网站访问得到flag。</p>
+<h2 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h2><blockquote>
+<p>版本控制很重要，但不要部署到生产环境更重要</p>
+</blockquote>
+<p>版本控制，一般是git和svn，这道题是git泄露，并且部署到了线上环境，就是可以直接访问到<code>/.git/</code>里的东西，直接访问<code>/.git/index.php</code>得到flag。</p>
+<h2 id="web8"><a href="#web8" class="headerlink" title="web8"></a>web8</h2><p>与上一题类似，这个是svn泄露，直接访问<code>/.svn/index.php</code>就可以。</p>
+<h2 id="web9"><a href="#web9" class="headerlink" title="web9"></a>web9</h2><blockquote>
+<p>发现网页有个错别字？赶紧在生产环境vim改下，不好，死机了</p>
+</blockquote>
+<p>应该是vim中的隐藏文件，直接访问<code>/index.php.swp</code>，下载得到备份文件，打卡查看就行。</p>
+<h2 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h2><blockquote>
+<p>cookie 只是一块饼干，不能存放任何隐私数据</p>
+</blockquote>
+<p>抓包，响应头中的cookie里有flag。</p>
+<h2 id="web11"><a href="#web11" class="headerlink" title="web11"></a>web11</h2><blockquote>
+<p>域名其实也可以隐藏信息，比如ctfshow.com就隐藏了一条信息</p>
+</blockquote>
+<p>通过<a target="_blank" rel="noopener" href="https://zijian.aliyun.com/">dns检查</a>查询flagTXT记录，一般指为某个主机名或域名设置的说明。</p>
+<h2 id="web12"><a href="#web12" class="headerlink" title="web12"></a>web12</h2><blockquote>
+<p>有时候网站上的公开信息，就是管理员常用密码</p>
+</blockquote>
+<p>看了半天，没发现哪里可以登录，原来在<code>/robots.txt</code>，本来可以扫一下就出来了，可惜扫不来，于是访问<code>/admin/</code>，终于有登录界面了，用户就是admin，密码则是网站下面的一串数字。</p>
+<h2 id="web13"><a href="#web13" class="headerlink" title="web13"></a>web13</h2><blockquote>
+<p>技术文档里面不要出现敏感信息，部署到生产环境后及时修改默认密码</p>
+</blockquote>
+<p>页面下方document字符处，有一个链接<code>document.pdf</code>访问发现存在后台登录地址并且有账号密码，这里要注意的是后台地址<code>http://your-domain/system1103/login.php</code>中<code>your-domain</code>是指你的域名，所以要进行替换，最后登录就有flag。</p>
+<h2 id="web14"><a href="#web14" class="headerlink" title="web14"></a>web14</h2><blockquote>
+<p>有时候源码里面就能不经意间泄露重要(editor)的信息,默认配置害死人</p>
+<p>小0day：某编辑器最新版默认配置下，如果目录不存在，则会遍历服务器根目录</p>
+</blockquote>
+<p>直接访问<code>/editor/</code>，插入文件处可以看到服务器的根目录，寻找flag的文件，在<code>/var/www/html/nothinghere/fl000g.txt</code>处，并且发现<code>/var/www/html/editor/</code>，明白服务器结构后，访问<code>/nothinghere/fl000g.txt</code>拿到flag。</p>
+<h2 id="web15"><a href="#web15" class="headerlink" title="web15"></a>web15</h2><blockquote>
+<p>公开的信息比如邮箱，可能造成信息泄露，产生严重后果</p>
+</blockquote>
+<p>访问<code>/admin/</code>，是一个后台登录系统，但我们不知道admin密码，忘记密码，看到密保问题是所在城市，联想在页面最下面，发现一个qq邮箱，搜索该qq号，得到该信息，重置密码登录即可。</p>
+<h2 id="web16"><a href="#web16" class="headerlink" title="web16"></a>web16</h2><blockquote>
+<p>对于测试用的探针，使用完毕后要及时删除，可能会造成信息泄露</p>
+</blockquote>
+<p>PHP探针php探针是用来探测空间、服务器运行状况和PHP信息用的，探针可以实时查看服务器硬盘资源、内存占用、网卡 流量、系统负载、服务器时间等信息。url后缀名添加<code>/tz.php</code>版本是雅黑PHP探针，然后查看phpinfo搜索flag。</p>
+<h2 id="web17"><a href="#web17" class="headerlink" title="web17"></a>web17</h2><blockquote>
+<p>透过重重缓存，查找到ctfer.com的真实IP</p>
+</blockquote>
+<p>这里的<code>ctfer.com</code>采用了CDN，不是主服务器IP对应的域名，只是一个节点，访问它返回的是<code>www.ctfshow.com</code>的缓存文件，这里的真实IP对应的域名是<code>www.ctfshow.com</code>，用<code>ping</code>命令，<code>ping www.ctfshow.com</code>，就可获得域名的IP</p>
+<h2 id="web18"><a href="#web18" class="headerlink" title="web18"></a>web18</h2><p>游戏题，去找js源码<code>Flappy_js.js</code>，找到游戏结束函数，因为提示说101分给flag，找到如下的代码，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(score&gt;<span class="number">100</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">var</span> result=<span class="built_in">window</span>.confirm(<span class="string">&quot;\u4f60\u8d62\u4e86\uff0c\u53bb\u5e7a\u5e7a\u96f6\u70b9\u76ae\u7231\u5403\u76ae\u770b\u770b&quot;</span>);<span class="comment">//你赢了，去幺幺零点皮爱吃皮看看(110.php)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>访问<code>/110.php</code>得到flag。</p>
+<h2 id="web19"><a href="#web19" class="headerlink" title="web19"></a>web19</h2><p>查看源码，发现注释，</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line">    <span class="variable">$flag</span>=<span class="string">&quot;fakeflag&quot;</span></span><br><span class="line">    <span class="variable">$u</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;username&#x27;</span>];</span><br><span class="line">    <span class="variable">$p</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;pazzword&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$u</span>) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$p</span>))&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$u</span>===<span class="string">&#x27;admin&#x27;</span> &amp;&amp; <span class="variable">$p</span> ===<span class="string">&#x27;a599ac85a73384ee3219fa684296eaa62667238d608efa81837030bd1ce1bf04&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>hackbar直接传参，拿到flag。</p>
+<h2 id="web20"><a href="#web20" class="headerlink" title="web20"></a>web20</h2><blockquote>
+<p>mdb文件是早期asp+access构架的数据库文件，文件泄露相当于数据库被脱裤了</p>
+</blockquote>
+<p>mdb文件是早期asp+access构架的数据库文件直接查看url路径添加<code>/db/db.mdb</code>下载文件，通过txt打开或者通过EasyAccess.exe打开搜索flag。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/web/" rel="tag"># web</a>
+              <a href="/tags/ctfshow/" rel="tag"># ctfshow</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/03/BUUCTF%20Web2/" rel="prev" title="BUUCTF Web2">
+      <i class="fa fa-chevron-left"></i> BUUCTF Web2
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#web1"><span class="nav-number">1.</span> <span class="nav-text">web1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web2"><span class="nav-number">2.</span> <span class="nav-text">web2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web3"><span class="nav-number">3.</span> <span class="nav-text">web3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web4"><span class="nav-number">4.</span> <span class="nav-text">web4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web5"><span class="nav-number">5.</span> <span class="nav-text">web5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web6"><span class="nav-number">6.</span> <span class="nav-text">web6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web7"><span class="nav-number">7.</span> <span class="nav-text">web7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web8"><span class="nav-number">8.</span> <span class="nav-text">web8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web9"><span class="nav-number">9.</span> <span class="nav-text">web9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web10"><span class="nav-number">10.</span> <span class="nav-text">web10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web11"><span class="nav-number">11.</span> <span class="nav-text">web11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web12"><span class="nav-number">12.</span> <span class="nav-text">web12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web13"><span class="nav-number">13.</span> <span class="nav-text">web13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web14"><span class="nav-number">14.</span> <span class="nav-text">web14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web15"><span class="nav-number">15.</span> <span class="nav-text">web15</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web16"><span class="nav-number">16.</span> <span class="nav-text">web16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web17"><span class="nav-number">17.</span> <span class="nav-text">web17</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web18"><span class="nav-number">18.</span> <span class="nav-text">web18</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web19"><span class="nav-number">19.</span> <span class="nav-text">web19</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web20"><span class="nav-number">20.</span> <span class="nav-text">web20</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="BkingXD"
+      src="/images/578879781.png">
+  <p class="site-author-name" itemprop="name">BkingXD</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/BkingXD" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;BkingXD" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fas fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BkingXD</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
