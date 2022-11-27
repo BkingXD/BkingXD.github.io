@@ -6,7 +6,7 @@
   <link href="https://bkingxd.github.io/atom.xml" rel="self"/>
   
   <link href="https://bkingxd.github.io/"/>
-  <updated>2022-11-19T10:48:47.857Z</updated>
+  <updated>2022-11-27T08:35:40.218Z</updated>
   <id>https://bkingxd.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java反序列化——CommonCollections1</title>
+    <link href="https://bkingxd.github.io/2022/11/27/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94CommonCollections1/"/>
+    <id>https://bkingxd.github.io/2022/11/27/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94CommonCollections1/</id>
+    <published>2022-11-27T08:32:23.000Z</published>
+    <updated>2022-11-27T08:35:40.218Z</updated>
+    
+    
+    <summary type="html">Commons Collections的利用链简称为CC链，是Java反序列化学习之路上不可避免的一部分，通过学习p神Java漫谈里的内容和网上的一些文章，弄清楚了CC1链的构造流程并做一个分析记录。</summary>
+    
+    
+    
+    <category term="Java" scheme="https://bkingxd.github.io/categories/Java/"/>
+    
+    
+    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
+    
+    <category term="代码审计" scheme="https://bkingxd.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+    <category term="Java反序列化" scheme="https://bkingxd.github.io/tags/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
+    
+    <category term="CC1" scheme="https://bkingxd.github.io/tags/CC1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTB-Shoppy</title>
+    <link href="https://bkingxd.github.io/2022/11/25/HTB-Shoppy/"/>
+    <id>https://bkingxd.github.io/2022/11/25/HTB-Shoppy/</id>
+    <published>2022-11-25T12:16:45.000Z</published>
+    <updated>2022-11-27T08:30:59.128Z</updated>
+    
+    
+    <summary type="html">HTB靶场记录——Shoppy</summary>
+    
+    
+    
+    <category term="Penetration" scheme="https://bkingxd.github.io/categories/Penetration/"/>
+    
+    
+    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
+    
+    <category term="HackTheBox" scheme="https://bkingxd.github.io/tags/HackTheBox/"/>
+    
+    <category term="Linux" scheme="https://bkingxd.github.io/tags/Linux/"/>
+    
+    <category term="NOSQL" scheme="https://bkingxd.github.io/tags/NOSQL/"/>
+    
+    <category term="Docker" scheme="https://bkingxd.github.io/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>HTB-RedPanda</title>
