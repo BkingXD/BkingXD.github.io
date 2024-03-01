@@ -6,7 +6,7 @@
   <link href="https://bkingxd.github.io/atom.xml" rel="self"/>
   
   <link href="https://bkingxd.github.io/"/>
-  <updated>2022-11-27T08:35:40.218Z</updated>
+  <updated>2024-03-01T09:13:18.434Z</updated>
   <id>https://bkingxd.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTB-Support</title>
+    <link href="https://bkingxd.github.io/2022/12/02/HTB-Support/"/>
+    <id>https://bkingxd.github.io/2022/12/02/HTB-Support/</id>
+    <published>2022-12-02T12:16:45.000Z</published>
+    <updated>2024-03-01T09:13:18.434Z</updated>
+    
+    
+    <summary type="html">HTB靶场记录——Support</summary>
+    
+    
+    
+    <category term="Penetration" scheme="https://bkingxd.github.io/categories/Penetration/"/>
+    
+    
+    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
+    
+    <category term="HackTheBox" scheme="https://bkingxd.github.io/tags/HackTheBox/"/>
+    
+    <category term="Windows" scheme="https://bkingxd.github.io/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>Java反序列化——CommonCollections1</title>
@@ -430,27 +453,6 @@
     <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
     
     <category term="ctfshow" scheme="https://bkingxd.github.io/tags/ctfshow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BUUCTF Web3</title>
-    <link href="https://bkingxd.github.io/2021/09/11/BUUCTF%20Web3/"/>
-    <id>https://bkingxd.github.io/2021/09/11/BUUCTF%20Web3/</id>
-    <published>2021-09-11T07:26:01.000Z</published>
-    <updated>2022-07-17T07:49:40.345Z</updated>
-    
-    
-    <summary type="html">持续更新的BUU刷题记录，又12道web题的WP。</summary>
-    
-    
-    
-    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
-    
-    
-    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
-    
-    <category term="BUUCTF" scheme="https://bkingxd.github.io/tags/BUUCTF/"/>
     
   </entry>
   

