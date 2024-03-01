@@ -119,6 +119,25 @@
   </entry>
   
   <entry>
+    <title>2022 B站安全攻防挑战赛</title>
+    <link href="https://bkingxd.github.io/2022/10/30/2022%20B%E7%AB%99%20%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E6%8C%91%E6%88%98%E8%B5%9B/"/>
+    <id>https://bkingxd.github.io/2022/10/30/2022%20B%E7%AB%99%20%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E6%8C%91%E6%88%98%E8%B5%9B/</id>
+    <published>2022-10-30T12:18:06.000Z</published>
+    <updated>2024-03-01T08:57:05.047Z</updated>
+    
+    
+    <summary type="html">B站程序员节举办的活动，形式是CTF，闲来无事于是就参加了一下，6道题最后解出来4道题，还是太菜了┭┮﹏┭┮。</summary>
+    
+    
+    
+    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
+    
+    
+    <category term="2022B站安全攻防挑战赛" scheme="https://bkingxd.github.io/tags/2022B%E7%AB%99%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E6%8C%91%E6%88%98%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2022浙江省赛决赛部分WP</title>
     <link href="https://bkingxd.github.io/2022/09/27/2022%E6%B5%99%E6%B1%9F%E7%9C%81%E8%B5%9B%E5%86%B3%E8%B5%9B/"/>
     <id>https://bkingxd.github.io/2022/09/27/2022%E6%B5%99%E6%B1%9F%E7%9C%81%E8%B5%9B%E5%86%B3%E8%B5%9B/</id>
@@ -432,27 +451,6 @@
     <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
     
     <category term="BUUCTF" scheme="https://bkingxd.github.io/tags/BUUCTF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ctfshow文件包含</title>
-    <link href="https://bkingxd.github.io/2021/08/12/ctfshow%20WEB%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/"/>
-    <id>https://bkingxd.github.io/2021/08/12/ctfshow%20WEB%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</id>
-    <published>2021-08-12T05:18:06.000Z</published>
-    <updated>2022-07-17T07:09:29.342Z</updated>
-    
-    
-    <summary type="html">本篇记录下文件包含这一部分的WP，感觉学到很多，收获颇丰。</summary>
-    
-    
-    
-    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
-    
-    
-    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
-    
-    <category term="ctfshow" scheme="https://bkingxd.github.io/tags/ctfshow/"/>
     
   </entry>
   
