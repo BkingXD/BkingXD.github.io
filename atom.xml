@@ -167,7 +167,7 @@
     <link href="https://bkingxd.github.io/2022/10/30/2022%20B%E7%AB%99%20%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E6%8C%91%E6%88%98%E8%B5%9B/"/>
     <id>https://bkingxd.github.io/2022/10/30/2022%20B%E7%AB%99%20%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E6%8C%91%E6%88%98%E8%B5%9B/</id>
     <published>2022-10-30T12:18:06.000Z</published>
-    <updated>2024-03-01T08:57:05.047Z</updated>
+    <updated>2024-03-02T07:32:01.052Z</updated>
     
     
     <summary type="html">B站程序员节举办的活动，形式是CTF，闲来无事于是就参加了一下，6道题最后解出来4道题，还是太菜了┭┮﹏┭┮。</summary>
@@ -177,7 +177,11 @@
     <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
     
     
+    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
+    
     <category term="2022B站安全攻防挑战赛" scheme="https://bkingxd.github.io/tags/2022B%E7%AB%99%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E6%8C%91%E6%88%98%E8%B5%9B/"/>
+    
+    <category term="Reverse" scheme="https://bkingxd.github.io/tags/Reverse/"/>
     
   </entry>
   
@@ -203,6 +207,48 @@
   </entry>
   
   <entry>
+    <title>BUUCTF Web9</title>
+    <link href="https://bkingxd.github.io/2022/08/14/BUUCTF%20Web9/"/>
+    <id>https://bkingxd.github.io/2022/08/14/BUUCTF%20Web9/</id>
+    <published>2022-08-14T12:16:05.000Z</published>
+    <updated>2024-03-02T07:29:39.648Z</updated>
+    
+    
+    <summary type="html">持续更新的BUU刷题记录。</summary>
+    
+    
+    
+    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
+    
+    
+    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
+    
+    <category term="BUUCTF" scheme="https://bkingxd.github.io/tags/BUUCTF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BUUCTF Web8</title>
+    <link href="https://bkingxd.github.io/2022/08/03/BUUCTF%20Web8/"/>
+    <id>https://bkingxd.github.io/2022/08/03/BUUCTF%20Web8/</id>
+    <published>2022-08-03T12:16:05.000Z</published>
+    <updated>2024-03-02T07:28:44.514Z</updated>
+    
+    
+    <summary type="html">持续更新的BUU刷题记录。</summary>
+    
+    
+    
+    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
+    
+    
+    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
+    
+    <category term="BUUCTF" scheme="https://bkingxd.github.io/tags/BUUCTF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>初次审计cms——从一道题开始</title>
     <link href="https://bkingxd.github.io/2022/08/02/%E5%88%9D%E6%AC%A1%E5%AE%A1%E8%AE%A1cms%E2%80%94%E2%80%94%E4%BB%8E%E4%B8%80%E9%81%93%E9%A2%98%E5%BC%80%E5%A7%8B/"/>
     <id>https://bkingxd.github.io/2022/08/02/%E5%88%9D%E6%AC%A1%E5%AE%A1%E8%AE%A1cms%E2%80%94%E2%80%94%E4%BB%8E%E4%B8%80%E9%81%93%E9%A2%98%E5%BC%80%E5%A7%8B/</id>
@@ -222,6 +268,27 @@
     <category term="CMS" scheme="https://bkingxd.github.io/tags/CMS/"/>
     
     <category term="代码审计" scheme="https://bkingxd.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BUUCTF Web7</title>
+    <link href="https://bkingxd.github.io/2022/07/08/BUUCTF%20Web7/"/>
+    <id>https://bkingxd.github.io/2022/07/08/BUUCTF%20Web7/</id>
+    <published>2022-07-08T12:16:05.000Z</published>
+    <updated>2024-03-02T07:28:02.058Z</updated>
+    
+    
+    <summary type="html">持续更新的BUU刷题记录。</summary>
+    
+    
+    
+    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
+    
+    
+    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
+    
+    <category term="BUUCTF" scheme="https://bkingxd.github.io/tags/BUUCTF/"/>
     
   </entry>
   
@@ -390,69 +457,6 @@
     <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
     
     <category term="ctfshow" scheme="https://bkingxd.github.io/tags/ctfshow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BUUCTF Web4</title>
-    <link href="https://bkingxd.github.io/2021/11/10/BUUCTF%20Web4/"/>
-    <id>https://bkingxd.github.io/2021/11/10/BUUCTF%20Web4/</id>
-    <published>2021-11-10T02:16:05.000Z</published>
-    <updated>2022-08-10T07:49:44.524Z</updated>
-    
-    
-    <summary type="html">持续更新的BUU刷题记录，又12道web题的WP。</summary>
-    
-    
-    
-    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
-    
-    
-    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
-    
-    <category term="BUUCTF" scheme="https://bkingxd.github.io/tags/BUUCTF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021浙江省赛决赛部分WP</title>
-    <link href="https://bkingxd.github.io/2021/11/03/2021%E6%B5%99%E6%B1%9F%E7%9C%81%E8%B5%9B%E5%86%B3%E8%B5%9B/"/>
-    <id>https://bkingxd.github.io/2021/11/03/2021%E6%B5%99%E6%B1%9F%E7%9C%81%E8%B5%9B%E5%86%B3%E8%B5%9B/</id>
-    <published>2021-11-03T05:18:06.000Z</published>
-    <updated>2024-03-01T07:55:57.623Z</updated>
-    
-    
-    <summary type="html">2021浙江省赛决赛部分WP。</summary>
-    
-    
-    
-    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
-    
-    
-    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
-    
-    <category term="2021浙江省赛决赛" scheme="https://bkingxd.github.io/tags/2021%E6%B5%99%E6%B1%9F%E7%9C%81%E8%B5%9B%E5%86%B3%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021浙江省赛初赛题目pppop复现</title>
-    <link href="https://bkingxd.github.io/2021/10/25/2021%E6%B5%99%E6%B1%9F%E7%9C%81%E8%B5%9B%E5%88%9D%E8%B5%9B/"/>
-    <id>https://bkingxd.github.io/2021/10/25/2021%E6%B5%99%E6%B1%9F%E7%9C%81%E8%B5%9B%E5%88%9D%E8%B5%9B/</id>
-    <published>2021-10-25T05:18:06.000Z</published>
-    <updated>2024-03-01T07:50:32.036Z</updated>
-    
-    
-    <summary type="html">复现一下当时预赛这道没做出来的反序列化题。</summary>
-    
-    
-    
-    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
-    
-    
-    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
-    
-    <category term="2021浙江省赛初赛" scheme="https://bkingxd.github.io/tags/2021%E6%B5%99%E6%B1%9F%E7%9C%81%E8%B5%9B%E5%88%9D%E8%B5%9B/"/>
     
   </entry>
   
