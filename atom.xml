@@ -80,6 +80,31 @@
   </entry>
   
   <entry>
+    <title>Java反序列化——CommonCollections6</title>
+    <link href="https://bkingxd.github.io/2023/03/10/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94CommonCollections6/"/>
+    <id>https://bkingxd.github.io/2023/03/10/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94CommonCollections6/</id>
+    <published>2023-03-10T08:32:23.000Z</published>
+    <updated>2024-03-15T09:07:30.522Z</updated>
+    
+    
+    <summary type="html">好久没有学习Java了，今天正好有空小学一下。于是顺着p神的思路，继续学习新的一个链子——CC6。</summary>
+    
+    
+    
+    <category term="Java" scheme="https://bkingxd.github.io/categories/Java/"/>
+    
+    
+    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
+    
+    <category term="代码审计" scheme="https://bkingxd.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+    <category term="Java反序列化" scheme="https://bkingxd.github.io/tags/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
+    
+    <category term="CC6" scheme="https://bkingxd.github.io/tags/CC6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>HTB-Support</title>
     <link href="https://bkingxd.github.io/2022/12/02/HTB-Support/"/>
     <id>https://bkingxd.github.io/2022/12/02/HTB-Support/</id>
@@ -436,27 +461,6 @@
     <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
     
     <category term="ctfshow" scheme="https://bkingxd.github.io/tags/ctfshow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BUUCTF Web5</title>
-    <link href="https://bkingxd.github.io/2022/03/31/BUUCTF%20Web5/"/>
-    <id>https://bkingxd.github.io/2022/03/31/BUUCTF%20Web5/</id>
-    <published>2022-03-31T10:16:05.000Z</published>
-    <updated>2022-09-16T07:13:08.398Z</updated>
-    
-    
-    <summary type="html">持续更新的BUU刷题记录。</summary>
-    
-    
-    
-    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
-    
-    
-    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
-    
-    <category term="BUUCTF" scheme="https://bkingxd.github.io/tags/BUUCTF/"/>
     
   </entry>
   
