@@ -6,7 +6,7 @@
   <link href="https://bkingxd.github.io/atom.xml" rel="self"/>
   
   <link href="https://bkingxd.github.io/"/>
-  <updated>2024-03-27T06:18:12.846Z</updated>
+  <updated>2025-08-09T03:40:20.537Z</updated>
   <id>https://bkingxd.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java反序列化——CC2+CC4+CC5+CC7</title>
+    <link href="https://bkingxd.github.io/2024/02/16/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94CC2+CC4+CC5+CC7/"/>
+    <id>https://bkingxd.github.io/2024/02/16/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94CC2+CC4+CC5+CC7/</id>
+    <published>2024-02-16T07:32:23.000Z</published>
+    <updated>2025-08-09T03:40:20.537Z</updated>
+    
+    
+    <summary type="html">对ysoserial中剩余的CC链进行简单分析。</summary>
+    
+    
+    
+    <category term="Java" scheme="https://bkingxd.github.io/categories/Java/"/>
+    
+    
+    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
+    
+    <category term="代码审计" scheme="https://bkingxd.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+    <category term="Java反序列化" scheme="https://bkingxd.github.io/tags/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
+    
+    <category term="CC2" scheme="https://bkingxd.github.io/tags/CC2/"/>
+    
+    <category term="CC4" scheme="https://bkingxd.github.io/tags/CC4/"/>
+    
+    <category term="CC5" scheme="https://bkingxd.github.io/tags/CC5/"/>
+    
+    <category term="CC7" scheme="https://bkingxd.github.io/tags/CC7/"/>
+    
+  </entry>
   
   <entry>
     <title>Java反序列化——CommonCollections3</title>
@@ -444,27 +475,6 @@
     <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
     
     <category term="2022ciscn" scheme="https://bkingxd.github.io/tags/2022ciscn/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BUUCTF Web6</title>
-    <link href="https://bkingxd.github.io/2022/05/24/BUUCTF%20Web6/"/>
-    <id>https://bkingxd.github.io/2022/05/24/BUUCTF%20Web6/</id>
-    <published>2022-05-24T12:16:05.000Z</published>
-    <updated>2022-09-16T07:21:29.377Z</updated>
-    
-    
-    <summary type="html">持续更新的BUU刷题记录。</summary>
-    
-    
-    
-    <category term="CTF" scheme="https://bkingxd.github.io/categories/CTF/"/>
-    
-    
-    <category term="web" scheme="https://bkingxd.github.io/tags/web/"/>
-    
-    <category term="BUUCTF" scheme="https://bkingxd.github.io/tags/BUUCTF/"/>
     
   </entry>
   
